@@ -1,0 +1,12 @@
+﻿palya1
+10;10
+aaaaaaaaaa
+bbbbbbbbbb
+cccccccccc
+dddddddddd
+eeeeeeeeee
+ffffffffff
+gggggggggg
+hhhhhhhhhh
+iiiiiiiiii
+jjjjjjjjjj

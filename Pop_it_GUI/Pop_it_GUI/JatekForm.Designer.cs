@@ -30,50 +30,71 @@ namespace Pop_it_GUI
         private void InitializeComponent()
         {
             this.dgv_jatekter = new System.Windows.Forms.DataGridView();
-            this.lbl_palyaneve = new System.Windows.Forms.Label();
-            this.lbl_ido = new System.Windows.Forms.Label();
+            this.lbl_ervenyesites = new System.Windows.Forms.Button();
+            this.lbl_jatekos = new System.Windows.Forms.Label();
+            this.lbl_uzenet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jatekter)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_jatekter
             // 
+            this.dgv_jatekter.AllowUserToAddRows = false;
+            this.dgv_jatekter.AllowUserToDeleteRows = false;
+            this.dgv_jatekter.AllowUserToResizeColumns = false;
+            this.dgv_jatekter.AllowUserToResizeRows = false;
             this.dgv_jatekter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_jatekter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_jatekter.Location = new System.Drawing.Point(0, 101);
+            this.dgv_jatekter.ColumnHeadersVisible = false;
+            this.dgv_jatekter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dgv_jatekter.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgv_jatekter.Location = new System.Drawing.Point(0, 0);
             this.dgv_jatekter.Name = "dgv_jatekter";
-            this.dgv_jatekter.Size = new System.Drawing.Size(463, 349);
+            this.dgv_jatekter.RowHeadersVisible = false;
+            this.dgv_jatekter.Size = new System.Drawing.Size(374, 271);
             this.dgv_jatekter.TabIndex = 0;
             // 
-            // lbl_palyaneve
+            // lbl_ervenyesites
             // 
-            this.lbl_palyaneve.Location = new System.Drawing.Point(159, 56);
-            this.lbl_palyaneve.Name = "lbl_palyaneve";
-            this.lbl_palyaneve.Size = new System.Drawing.Size(128, 28);
-            this.lbl_palyaneve.TabIndex = 1;
-            this.lbl_palyaneve.Text = "Palya0";
-            this.lbl_palyaneve.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_ervenyesites.Location = new System.Drawing.Point(199, 352);
+            this.lbl_ervenyesites.Name = "lbl_ervenyesites";
+            this.lbl_ervenyesites.Size = new System.Drawing.Size(163, 25);
+            this.lbl_ervenyesites.TabIndex = 1;
+            this.lbl_ervenyesites.Text = "Lépés érvényesítése (space)";
+            this.lbl_ervenyesites.UseVisualStyleBackColor = true;
+            this.lbl_ervenyesites.Click += new System.EventHandler(this.lbl_ervenyesites_Click);
             // 
-            // lbl_ido
+            // lbl_jatekos
             // 
-            this.lbl_ido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl_ido.Location = new System.Drawing.Point(162, 22);
-            this.lbl_ido.Name = "lbl_ido";
-            this.lbl_ido.Size = new System.Drawing.Size(125, 34);
-            this.lbl_ido.TabIndex = 2;
-            this.lbl_ido.Text = "00:00";
-            this.lbl_ido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_jatekos.Location = new System.Drawing.Point(12, 282);
+            this.lbl_jatekos.Name = "lbl_jatekos";
+            this.lbl_jatekos.Size = new System.Drawing.Size(100, 24);
+            this.lbl_jatekos.TabIndex = 2;
+            this.lbl_jatekos.Text = "Játékos: Játékos 1";
+            this.lbl_jatekos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_uzenet
+            // 
+            this.lbl_uzenet.ForeColor = System.Drawing.Color.Red;
+            this.lbl_uzenet.Location = new System.Drawing.Point(199, 283);
+            this.lbl_uzenet.Name = "lbl_uzenet";
+            this.lbl_uzenet.Size = new System.Drawing.Size(163, 23);
+            this.lbl_uzenet.TabIndex = 3;
+            this.lbl_uzenet.Text = "Hiba!";
+            this.lbl_uzenet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // JatekForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 450);
-            this.Controls.Add(this.lbl_ido);
-            this.Controls.Add(this.lbl_palyaneve);
+            this.ClientSize = new System.Drawing.Size(374, 389);
+            this.Controls.Add(this.lbl_uzenet);
+            this.Controls.Add(this.lbl_jatekos);
+            this.Controls.Add(this.lbl_ervenyesites);
             this.Controls.Add(this.dgv_jatekter);
+            this.KeyPreview = true;
             this.Name = "JatekForm";
             this.Text = "Pop it! GUI - by Csodacsapat [Játék]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JatekForm_FormClosing);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.JatekForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jatekter)).EndInit();
             this.ResumeLayout(false);
 
@@ -82,7 +103,8 @@ namespace Pop_it_GUI
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_jatekter;
-        private System.Windows.Forms.Label lbl_palyaneve;
-        private System.Windows.Forms.Label lbl_ido;
+        private System.Windows.Forms.Button lbl_ervenyesites;
+        private System.Windows.Forms.Label lbl_jatekos;
+        private System.Windows.Forms.Label lbl_uzenet;
     }
 }

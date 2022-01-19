@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pop_it_GUI
 {
-    class Palya
+    public class Palya
     {
         public int id { get; set; }
         public string palya_neve { get; set; }

@@ -22,7 +22,7 @@ namespace Pop_it_GUI
 
         public void PalyakBeolvasas()
         {
-            string[] fajlok = Directory.GetFiles(@".\palyak");
+            string[] fajlok = Directory.GetFiles(@"..\..\palyak");
             int id = 0;
             foreach (var item in fajlok)
             {
@@ -46,7 +46,7 @@ namespace Pop_it_GUI
 
         private void btn_jatek_Click(object sender, EventArgs e)
         {
-            JatekForm jatek = new JatekForm(listbox_palyak.SelectedIndex);
+            JatekForm jatek = new JatekForm(listbox_palyak.SelectedIndex, palyak);
             jatek.Show();
             this.Close();
         }
