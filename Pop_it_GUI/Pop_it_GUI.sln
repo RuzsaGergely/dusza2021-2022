@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pop_it_GUI", "Pop_it_GUI\Pop_it_GUI.csproj", "{1ED4B8E1-9D4F-444D-8B69-0DA7E4FF5F76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1ED4B8E1-9D4F-444D-8B69-0DA7E4FF5F76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ED4B8E1-9D4F-444D-8B69-0DA7E4FF5F76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ED4B8E1-9D4F-444D-8B69-0DA7E4FF5F76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ED4B8E1-9D4F-444D-8B69-0DA7E4FF5F76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {152DD4EF-A36A-40D8-99B8-9E49707A5551}
+	EndGlobalSection
+EndGlobal
