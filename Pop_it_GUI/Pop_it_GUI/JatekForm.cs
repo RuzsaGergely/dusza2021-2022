@@ -29,12 +29,13 @@ namespace Pop_it_GUI
             for (int i = 0; i < valasztott_palya.GetLength(0); i++)
             {
                 dgv_jatekter.Columns.Add(i.ToString(), i.ToString());
-                dgv_jatekter.Columns[i].Width = 20;
+                dgv_jatekter.Columns[i].Width = (dgv_jatekter.Width / valasztott_palya.GetLength(1))-2;
             }
             for (int i = 0; i < valasztott_palya.GetLength(0); i++)
             {
                 int rowId = dgv_jatekter.Rows.Add();
                 DataGridViewRow row = dgv_jatekter.Rows[rowId];
+                row.Height = (dgv_jatekter.Height / valasztott_palya.GetLength(0))-2;
                 for (int ii = 0; ii < valasztott_palya.GetLength(1); ii++)
                 {
                     row.Cells[ii].Value = valasztott_palya[i, ii];
@@ -77,6 +78,16 @@ namespace Pop_it_GUI
             }
             if (ervenyes_tamadas)
             {
+                foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
+                {
+                    item.Style.BackColor = Color.Gray;
+                }
+                KijelolesTorlese();
+                if (JatekVege())
+                {
+                    MessageBox.Show($"Játkos {jatekos} nyert! Gratulálok!", "A játékos időnek vége");
+                    this.Close();
+                }
                 if (jatekos == 1)
                 {
                     lbl_jatekos.Text = "Játékos: Játékos 2";
@@ -87,20 +98,9 @@ namespace Pop_it_GUI
                     lbl_jatekos.Text = "Játékos: Játékos 1";
                     jatekos = 1;
                 }
-                   
-                foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
-                {
-                    item.Style.BackColor = Color.Gray;
-                }
             } else
             {
                 lbl_uzenet.Text = "Hiba! Érvénytelen lépés!";
-            }
-            // TODO: Játékvége ellenőrzés
-            if (JatekVege())
-            {
-                this.Enabled = false;
-                MessageBox.Show($"Játkos {jatekos} nyert! Gratulálok!", "A játékos időnek vége");
             }
         }
         private bool JatekVege()
@@ -111,11 +111,20 @@ namespace Pop_it_GUI
                 foreach (DataGridViewCell cell in row.Cells)
                 {
                     if (cell.Style.BackColor != Color.Gray)
+                    {
                         vege = false;
-                    break;
+                        break;
+                    }              
                 }
             }
             return vege;
+        }
+        private void KijelolesTorlese()
+        {
+            foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
+            {
+                item.Selected = false;
+            }
         }
     }
 }

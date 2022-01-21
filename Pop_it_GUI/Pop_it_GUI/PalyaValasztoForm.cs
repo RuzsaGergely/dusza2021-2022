@@ -53,22 +53,29 @@ namespace Pop_it_GUI
 
         private void listbox_palyak_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgv_preview.Columns.Clear();
-            char[,] valasztott_palya = palyak[listbox_palyak.SelectedIndex].palya;
-            for (int i = 0; i < valasztott_palya.GetLength(0); i++)
+            try
             {
-                dgv_preview.Columns.Add(i.ToString(), i.ToString());
-                dgv_preview.Columns[i].Width = 20;
-            }
-            for (int i = 0; i < valasztott_palya.GetLength(0); i++)
-            {
-                int rowId = dgv_preview.Rows.Add();
-                DataGridViewRow row = dgv_preview.Rows[rowId];
-                for (int ii = 0; ii < valasztott_palya.GetLength(1); ii++)
+                dgv_preview.Columns.Clear();
+                char[,] valasztott_palya = palyak[listbox_palyak.SelectedIndex].palya;
+                for (int i = 0; i < valasztott_palya.GetLength(0); i++)
                 {
-                    row.Cells[ii].Value = valasztott_palya[i,ii];
+                    dgv_preview.Columns.Add(i.ToString(), i.ToString());
+                    dgv_preview.Columns[i].Width = 20;
                 }
-            }      
+                for (int i = 0; i < valasztott_palya.GetLength(0); i++)
+                {
+                    int rowId = dgv_preview.Rows.Add();
+                    DataGridViewRow row = dgv_preview.Rows[rowId];
+                    for (int ii = 0; ii < valasztott_palya.GetLength(1); ii++)
+                    {
+                        row.Cells[ii].Value = valasztott_palya[i, ii];
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

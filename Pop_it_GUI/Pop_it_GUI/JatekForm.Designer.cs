@@ -49,7 +49,7 @@ namespace Pop_it_GUI
             this.dgv_jatekter.Location = new System.Drawing.Point(0, 0);
             this.dgv_jatekter.Name = "dgv_jatekter";
             this.dgv_jatekter.RowHeadersVisible = false;
-            this.dgv_jatekter.Size = new System.Drawing.Size(374, 271);
+            this.dgv_jatekter.Size = new System.Drawing.Size(370, 270);
             this.dgv_jatekter.TabIndex = 0;
             // 
             // lbl_ervenyesites
@@ -85,11 +85,12 @@ namespace Pop_it_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 360);
+            this.ClientSize = new System.Drawing.Size(370, 360);
             this.Controls.Add(this.lbl_uzenet);
             this.Controls.Add(this.lbl_jatekos);
             this.Controls.Add(this.lbl_ervenyesites);
             this.Controls.Add(this.dgv_jatekter);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "JatekForm";
             this.Text = "Pop it! GUI - by Csodacsapat [Játék]";
