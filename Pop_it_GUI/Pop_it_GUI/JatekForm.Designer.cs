@@ -32,7 +32,6 @@ namespace Pop_it_GUI
             this.dgv_jatekter = new System.Windows.Forms.DataGridView();
             this.lbl_ervenyesites = new System.Windows.Forms.Button();
             this.lbl_jatekos = new System.Windows.Forms.Label();
-            this.lbl_uzenet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jatekter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +53,7 @@ namespace Pop_it_GUI
             // 
             // lbl_ervenyesites
             // 
-            this.lbl_ervenyesites.Location = new System.Drawing.Point(202, 324);
+            this.lbl_ervenyesites.Location = new System.Drawing.Point(195, 282);
             this.lbl_ervenyesites.Name = "lbl_ervenyesites";
             this.lbl_ervenyesites.Size = new System.Drawing.Size(163, 25);
             this.lbl_ervenyesites.TabIndex = 1;
@@ -64,29 +63,19 @@ namespace Pop_it_GUI
             // 
             // lbl_jatekos
             // 
+            this.lbl_jatekos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lbl_jatekos.Location = new System.Drawing.Point(12, 282);
             this.lbl_jatekos.Name = "lbl_jatekos";
-            this.lbl_jatekos.Size = new System.Drawing.Size(100, 24);
+            this.lbl_jatekos.Size = new System.Drawing.Size(163, 24);
             this.lbl_jatekos.TabIndex = 2;
             this.lbl_jatekos.Text = "Játékos: Játékos 1";
             this.lbl_jatekos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_uzenet
-            // 
-            this.lbl_uzenet.ForeColor = System.Drawing.Color.Red;
-            this.lbl_uzenet.Location = new System.Drawing.Point(199, 283);
-            this.lbl_uzenet.Name = "lbl_uzenet";
-            this.lbl_uzenet.Size = new System.Drawing.Size(163, 23);
-            this.lbl_uzenet.TabIndex = 3;
-            this.lbl_uzenet.Text = "Hiba!";
-            this.lbl_uzenet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // JatekForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 360);
-            this.Controls.Add(this.lbl_uzenet);
+            this.ClientSize = new System.Drawing.Size(370, 317);
             this.Controls.Add(this.lbl_jatekos);
             this.Controls.Add(this.lbl_ervenyesites);
             this.Controls.Add(this.dgv_jatekter);
@@ -106,6 +95,5 @@ namespace Pop_it_GUI
         private System.Windows.Forms.DataGridView dgv_jatekter;
         private System.Windows.Forms.Button lbl_ervenyesites;
         private System.Windows.Forms.Label lbl_jatekos;
-        private System.Windows.Forms.Label lbl_uzenet;
     }
 }

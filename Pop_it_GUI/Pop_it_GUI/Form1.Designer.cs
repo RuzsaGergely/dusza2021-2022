@@ -36,17 +36,19 @@ namespace Pop_it_GUI
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_aktual_verzio = new System.Windows.Forms.Label();
+            this.btn_lanplay = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn_lanplay);
             this.groupBox1.Controls.Add(this.btn_kilepes);
             this.groupBox1.Controls.Add(this.btn_generalas);
             this.groupBox1.Controls.Add(this.btn_jatek);
             this.groupBox1.Location = new System.Drawing.Point(59, 77);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(266, 134);
+            this.groupBox1.Size = new System.Drawing.Size(266, 162);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menü";
@@ -54,7 +56,7 @@ namespace Pop_it_GUI
             // btn_kilepes
             // 
             this.btn_kilepes.ForeColor = System.Drawing.Color.Red;
-            this.btn_kilepes.Location = new System.Drawing.Point(17, 87);
+            this.btn_kilepes.Location = new System.Drawing.Point(17, 121);
             this.btn_kilepes.Name = "btn_kilepes";
             this.btn_kilepes.Size = new System.Drawing.Size(226, 28);
             this.btn_kilepes.TabIndex = 2;
@@ -64,7 +66,7 @@ namespace Pop_it_GUI
             // 
             // btn_generalas
             // 
-            this.btn_generalas.Location = new System.Drawing.Point(17, 53);
+            this.btn_generalas.Location = new System.Drawing.Point(17, 87);
             this.btn_generalas.Name = "btn_generalas";
             this.btn_generalas.Size = new System.Drawing.Size(226, 28);
             this.btn_generalas.TabIndex = 1;
@@ -78,7 +80,7 @@ namespace Pop_it_GUI
             this.btn_jatek.Name = "btn_jatek";
             this.btn_jatek.Size = new System.Drawing.Size(226, 28);
             this.btn_jatek.TabIndex = 0;
-            this.btn_jatek.Text = "Új játék!";
+            this.btn_jatek.Text = "Játék helyi gépen";
             this.btn_jatek.UseVisualStyleBackColor = true;
             this.btn_jatek.Click += new System.EventHandler(this.btn_jatek_Click);
             // 
@@ -104,18 +106,28 @@ namespace Pop_it_GUI
             // lbl_aktual_verzio
             // 
             this.lbl_aktual_verzio.AutoSize = true;
-            this.lbl_aktual_verzio.Location = new System.Drawing.Point(1, 223);
+            this.lbl_aktual_verzio.Location = new System.Drawing.Point(1, 249);
             this.lbl_aktual_verzio.Name = "lbl_aktual_verzio";
             this.lbl_aktual_verzio.Size = new System.Drawing.Size(28, 13);
             this.lbl_aktual_verzio.TabIndex = 9;
             this.lbl_aktual_verzio.Text = "v1.0";
+            // 
+            // btn_lanplay
+            // 
+            this.btn_lanplay.Location = new System.Drawing.Point(17, 53);
+            this.btn_lanplay.Name = "btn_lanplay";
+            this.btn_lanplay.Size = new System.Drawing.Size(226, 28);
+            this.btn_lanplay.TabIndex = 3;
+            this.btn_lanplay.Text = "Többjátékos mód (LAN)";
+            this.btn_lanplay.UseVisualStyleBackColor = true;
+            this.btn_lanplay.Click += new System.EventHandler(this.btn_lanplay_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(391, 240);
+            this.ClientSize = new System.Drawing.Size(391, 262);
             this.Controls.Add(this.lbl_aktual_verzio);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -139,6 +151,7 @@ namespace Pop_it_GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_aktual_verzio;
+        private System.Windows.Forms.Button btn_lanplay;
     }
 }
 

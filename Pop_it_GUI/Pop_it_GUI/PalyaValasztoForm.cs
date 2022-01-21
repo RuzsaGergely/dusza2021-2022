@@ -13,10 +13,12 @@ namespace Pop_it_GUI
 {
     public partial class PalyaValasztoForm : Form
     {
-        public PalyaValasztoForm()
+        public PalyaValasztoForm(bool lan)
         {
             InitializeComponent();
             PalyakBeolvasas();
+            if (lan)
+                btn_csatlakozas.Enabled = true;
         }
         static List<Palya> palyak = new List<Palya>();
 
@@ -46,11 +48,16 @@ namespace Pop_it_GUI
 
         private void btn_jatek_Click(object sender, EventArgs e)
         {
+            JatekIndit();
+        }
+
+        private void JatekIndit()
+        {
             JatekForm jatek = new JatekForm(listbox_palyak.SelectedIndex, palyak);
             jatek.Show();
             this.Close();
         }
-
+        static Szinek szines = new Szinek();
         private void listbox_palyak_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -69,12 +76,20 @@ namespace Pop_it_GUI
                     for (int ii = 0; ii < valasztott_palya.GetLength(1); ii++)
                     {
                         row.Cells[ii].Value = valasztott_palya[i, ii];
+                        row.Cells[ii].Style.BackColor = szines.szinkodok[valasztott_palya[i, ii]];
                     }
                 }
             }
             catch (Exception)
             {
 
+            }
+        }
+        private void listbox_palyak_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                JatekIndit();
             }
         }
     }

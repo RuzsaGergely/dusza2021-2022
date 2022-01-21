@@ -30,7 +30,13 @@ namespace Pop_it_GUI
 
         private void btn_jatek_Click(object sender, EventArgs e)
         {
-            PalyaValasztoForm valaszto = new PalyaValasztoForm();
+            PalyaValasztoForm valaszto = new PalyaValasztoForm(false);
+            valaszto.Show();
+        }
+
+        private void btn_lanplay_Click(object sender, EventArgs e)
+        {
+            PalyaValasztoForm valaszto = new PalyaValasztoForm(true);
             valaszto.Show();
         }
     }

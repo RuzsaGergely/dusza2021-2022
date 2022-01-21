@@ -18,7 +18,6 @@ namespace Pop_it_GUI
             InitializeComponent();
             palyak = lista;
             Kiiratas(jatek_id);
-            lbl_uzenet.Text = "";
         }
 
         private void Kiiratas(int palya)
@@ -40,6 +39,8 @@ namespace Pop_it_GUI
                 {
                     row.Cells[ii].Value = valasztott_palya[i, ii];
                     row.Cells[ii].Style.BackColor = szines.szinkodok[valasztott_palya[i, ii]];
+                    row.Cells[ii].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    row.Cells[ii].Style.Font = new Font("Segoe UI", 11.5F, FontStyle.Bold);
                 }
             }
         }
@@ -63,44 +64,57 @@ namespace Pop_it_GUI
         }
 
         private int jatekos = 1;
+        // 0 - jatekos 1
+        // 1 - jatekos 2
+        private int[] jatekos_stats = { 0, 0 };
         private void JatekEllenor()
         {
-            lbl_uzenet.Text = "";
-            bool ervenyes_tamadas = true;
-            string cella = dgv_jatekter.SelectedCells[0].Value.ToString();
-            foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
+            try
             {
-                if(item.Value.ToString() != cella)
-                {
-                    ervenyes_tamadas = false;
-                    break;
-                }
-            }
-            if (ervenyes_tamadas)
-            {
+                bool ervenyes_tamadas = true;
+                string cella = dgv_jatekter.SelectedCells[0].Value.ToString();
                 foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
                 {
-                    item.Style.BackColor = Color.Gray;
+                    if (item.Value.ToString() != cella || item.Style.BackColor == Color.Gray)
+                    {
+                        ervenyes_tamadas = false;
+                        break;
+                    }
                 }
-                KijelolesTorlese();
-                if (JatekVege())
+                if (ervenyes_tamadas)
                 {
-                    MessageBox.Show($"Játkos {jatekos} nyert! Gratulálok!", "A játékos időnek vége");
-                    this.Close();
-                }
-                if (jatekos == 1)
-                {
-                    lbl_jatekos.Text = "Játékos: Játékos 2";
-                    jatekos = 2;
+                    foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
+                    {
+                        item.Style.BackColor = Color.Gray;
+                    }  
+                    if (JatekVege())
+                    {
+                        MessageBox.Show($"Játékos {jatekos} nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
+                        MessageBox.Show($"Statisztikák:\nJátékos 1 kinyomott mezői: {jatekos_stats[0]} db\nJátékos 2 kinyomott mezői: {jatekos_stats[1]} db", "Statisztika");
+                        this.Close();
+                    }
+                    if (jatekos == 1)
+                    {
+                        lbl_jatekos.Text = "Játékos: Játékos 2";
+                        jatekos_stats[0] += dgv_jatekter.SelectedCells.Count;
+                        jatekos = 2;
+                    }
+                    else
+                    {
+                        lbl_jatekos.Text = "Játékos: Játékos 1";
+                        jatekos_stats[1] += dgv_jatekter.SelectedCells.Count;
+                        jatekos = 1;
+                    }
+                    KijelolesTorlese();
                 }
                 else
                 {
-                    lbl_jatekos.Text = "Játékos: Játékos 1";
-                    jatekos = 1;
+                    MessageBox.Show("Érvénytelen lépés!", "Hiba!");
                 }
-            } else
+            }
+            catch (Exception)
             {
-                lbl_uzenet.Text = "Hiba! Érvénytelen lépés!";
+
             }
         }
         private bool JatekVege()
