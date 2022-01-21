@@ -54,7 +54,7 @@ namespace Pop_it_GUI
             // 
             // lbl_ervenyesites
             // 
-            this.lbl_ervenyesites.Location = new System.Drawing.Point(199, 352);
+            this.lbl_ervenyesites.Location = new System.Drawing.Point(202, 324);
             this.lbl_ervenyesites.Name = "lbl_ervenyesites";
             this.lbl_ervenyesites.Size = new System.Drawing.Size(163, 25);
             this.lbl_ervenyesites.TabIndex = 1;
@@ -85,7 +85,7 @@ namespace Pop_it_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 389);
+            this.ClientSize = new System.Drawing.Size(374, 360);
             this.Controls.Add(this.lbl_uzenet);
             this.Controls.Add(this.lbl_jatekos);
             this.Controls.Add(this.lbl_ervenyesites);

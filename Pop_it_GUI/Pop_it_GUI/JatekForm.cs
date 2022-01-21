@@ -61,6 +61,7 @@ namespace Pop_it_GUI
             }
         }
 
+        private int jatekos = 1;
         private void JatekEllenor()
         {
             lbl_uzenet.Text = "";
@@ -76,10 +77,17 @@ namespace Pop_it_GUI
             }
             if (ervenyes_tamadas)
             {
-                if (lbl_jatekos.Text == "Játékos: Játékos 1")
+                if (jatekos == 1)
+                {
                     lbl_jatekos.Text = "Játékos: Játékos 2";
+                    jatekos = 2;
+                }
                 else
+                {
                     lbl_jatekos.Text = "Játékos: Játékos 1";
+                    jatekos = 1;
+                }
+                   
                 foreach (DataGridViewCell item in dgv_jatekter.SelectedCells)
                 {
                     item.Style.BackColor = Color.Gray;
@@ -91,7 +99,8 @@ namespace Pop_it_GUI
             // TODO: Játékvége ellenőrzés
             if (JatekVege())
             {
-
+                this.Enabled = false;
+                MessageBox.Show($"Játkos {jatekos} nyert! Gratulálok!", "A játékos időnek vége");
             }
         }
         private bool JatekVege()
