@@ -58,12 +58,19 @@
     <Compile Include="GeneralasForm.Designer.cs">
       <DependentUpon>GeneralasForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JatekFormLAN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JatekFormLAN.Designer.cs">
+      <DependentUpon>JatekFormLAN.cs</DependentUpon>
+    </Compile>
     <Compile Include="JatekForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="JatekForm.Designer.cs">
       <DependentUpon>JatekForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JatekMenedzser.cs" />
     <Compile Include="Palya.cs" />
     <Compile Include="PalyaValasztoForm.cs">
       <SubType>Form</SubType>
@@ -79,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralasForm.resx">
       <DependentUpon>GeneralasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="JatekFormLAN.resx">
+      <DependentUpon>JatekFormLAN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JatekForm.resx">
       <DependentUpon>JatekForm.cs</DependentUpon>

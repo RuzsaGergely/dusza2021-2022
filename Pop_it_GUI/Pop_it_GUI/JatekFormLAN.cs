@@ -7,15 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Sockets;
+using System.Net;
 
 namespace Pop_it_GUI
 {
-    public partial class JatekForm : Form
+    public partial class JatekFormLAN : Form
     {
         static List<Palya> palyak;
         static JatekMenedzser jatek;
-        public JatekForm(int jatek_id, List<Palya> lista)
+        public JatekFormLAN(int jatek_id, List<Palya> lista)
         {
             InitializeComponent();
             palyak = lista;
@@ -37,7 +37,7 @@ namespace Pop_it_GUI
 
         private void JatekForm_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Space)
+            if (e.KeyChar == (char)Keys.Space)
             {
                 jatek.JatekEllenor();
             }
