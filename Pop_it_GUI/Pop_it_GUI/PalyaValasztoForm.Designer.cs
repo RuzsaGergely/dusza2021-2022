@@ -31,15 +31,15 @@ namespace Pop_it_GUI
         {
             this.listbox_palyak = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_jatek = new System.Windows.Forms.Button();
-            this.dgv_preview = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_csatlakozas = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_csatlakozas = new System.Windows.Forms.Button();
+            this.btn_jatek = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dgv_preview = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_preview)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_preview)).BeginInit();
             this.SuspendLayout();
             // 
             // listbox_palyak
@@ -63,6 +63,27 @@ namespace Pop_it_GUI
             this.panel1.Size = new System.Drawing.Size(276, 452);
             this.panel1.TabIndex = 1;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btn_csatlakozas);
+            this.groupBox2.Controls.Add(this.btn_jatek);
+            this.groupBox2.Location = new System.Drawing.Point(30, 341);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 100);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Inditópult";
+            // 
+            // btn_csatlakozas
+            // 
+            this.btn_csatlakozas.Enabled = false;
+            this.btn_csatlakozas.Location = new System.Drawing.Point(15, 36);
+            this.btn_csatlakozas.Name = "btn_csatlakozas";
+            this.btn_csatlakozas.Size = new System.Drawing.Size(75, 35);
+            this.btn_csatlakozas.TabIndex = 3;
+            this.btn_csatlakozas.Text = "Csatlakozás";
+            this.btn_csatlakozas.UseVisualStyleBackColor = true;
+            // 
             // btn_jatek
             // 
             this.btn_jatek.Location = new System.Drawing.Point(107, 36);
@@ -72,6 +93,17 @@ namespace Pop_it_GUI
             this.btn_jatek.Text = "Játék!";
             this.btn_jatek.UseVisualStyleBackColor = true;
             this.btn_jatek.Click += new System.EventHandler(this.btn_jatek_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.dgv_preview);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(276, 335);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Előnézet";
             // 
             // dgv_preview
             // 
@@ -88,38 +120,6 @@ namespace Pop_it_GUI
             this.dgv_preview.Size = new System.Drawing.Size(270, 316);
             this.dgv_preview.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dgv_preview);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 335);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Előnézet";
-            // 
-            // btn_csatlakozas
-            // 
-            this.btn_csatlakozas.Enabled = false;
-            this.btn_csatlakozas.Location = new System.Drawing.Point(15, 36);
-            this.btn_csatlakozas.Name = "btn_csatlakozas";
-            this.btn_csatlakozas.Size = new System.Drawing.Size(75, 35);
-            this.btn_csatlakozas.TabIndex = 3;
-            this.btn_csatlakozas.Text = "Csatlakozás";
-            this.btn_csatlakozas.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.btn_csatlakozas);
-            this.groupBox2.Controls.Add(this.btn_jatek);
-            this.groupBox2.Location = new System.Drawing.Point(30, 341);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Inditópult";
-            // 
             // PalyaValasztoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,11 +129,13 @@ namespace Pop_it_GUI
             this.Controls.Add(this.listbox_palyak);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "PalyaValasztoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Pálya választó]";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PalyaValasztoForm_FormClosed);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_preview)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_preview)).EndInit();
             this.ResumeLayout(false);
 
         }
