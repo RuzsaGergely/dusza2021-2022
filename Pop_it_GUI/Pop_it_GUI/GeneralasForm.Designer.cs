@@ -37,7 +37,9 @@ namespace Pop_it_GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "GeneralasForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Generálás]";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GeneralasForm_FormClosed);
             this.ResumeLayout(false);
 
         }

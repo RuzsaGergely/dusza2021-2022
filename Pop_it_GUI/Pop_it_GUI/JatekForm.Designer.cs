@@ -41,19 +41,20 @@ namespace Pop_it_GUI
             this.dgv_jatekter.AllowUserToDeleteRows = false;
             this.dgv_jatekter.AllowUserToResizeColumns = false;
             this.dgv_jatekter.AllowUserToResizeRows = false;
+            this.dgv_jatekter.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_jatekter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_jatekter.ColumnHeadersVisible = false;
-            this.dgv_jatekter.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_jatekter.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_jatekter.Location = new System.Drawing.Point(0, 0);
+            this.dgv_jatekter.Location = new System.Drawing.Point(12, 12);
             this.dgv_jatekter.Name = "dgv_jatekter";
             this.dgv_jatekter.RowHeadersVisible = false;
-            this.dgv_jatekter.Size = new System.Drawing.Size(370, 270);
+            this.dgv_jatekter.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.dgv_jatekter.Size = new System.Drawing.Size(543, 543);
             this.dgv_jatekter.TabIndex = 0;
             // 
             // lbl_ervenyesites
             // 
-            this.lbl_ervenyesites.Location = new System.Drawing.Point(195, 282);
+            this.lbl_ervenyesites.Location = new System.Drawing.Point(392, 562);
             this.lbl_ervenyesites.Name = "lbl_ervenyesites";
             this.lbl_ervenyesites.Size = new System.Drawing.Size(163, 25);
             this.lbl_ervenyesites.TabIndex = 1;
@@ -64,7 +65,7 @@ namespace Pop_it_GUI
             // lbl_jatekos
             // 
             this.lbl_jatekos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl_jatekos.Location = new System.Drawing.Point(12, 282);
+            this.lbl_jatekos.Location = new System.Drawing.Point(12, 561);
             this.lbl_jatekos.Name = "lbl_jatekos";
             this.lbl_jatekos.Size = new System.Drawing.Size(163, 24);
             this.lbl_jatekos.TabIndex = 2;
@@ -75,13 +76,14 @@ namespace Pop_it_GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(370, 317);
+            this.ClientSize = new System.Drawing.Size(568, 594);
             this.Controls.Add(this.lbl_jatekos);
             this.Controls.Add(this.lbl_ervenyesites);
             this.Controls.Add(this.dgv_jatekter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
             this.Name = "JatekForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Játék]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JatekForm_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.JatekForm_KeyPress);

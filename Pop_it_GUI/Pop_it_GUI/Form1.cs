@@ -24,20 +24,36 @@ namespace Pop_it_GUI
 
         private void btn_generalas_Click(object sender, EventArgs e)
         {
+            //menü elrejtése
+            Hide();
+            //generálás menü mutatása
             GeneralasForm generalas = new GeneralasForm();
             generalas.Show();
         }
 
         private void btn_jatek_Click(object sender, EventArgs e)
         {
+            //menü elrejtése
+            Hide();
+            //pályaválasztó menü mutatása
             PalyaValasztoForm valaszto = new PalyaValasztoForm(false);
             valaszto.Show();
         }
 
         private void btn_lanplay_Click(object sender, EventArgs e)
         {
+            //menü elrejtése
+            Hide();
+            //LAN pályaválasztó menü mutatása
             PalyaValasztoForm valaszto = new PalyaValasztoForm(true);
             valaszto.Show();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //a kilépés gomb használata nélkül se fusson a háttérben
+            //ha bármely okból becsukódik a form, akkor kilép a program
+            Environment.Exit(0);
         }
     }
 }

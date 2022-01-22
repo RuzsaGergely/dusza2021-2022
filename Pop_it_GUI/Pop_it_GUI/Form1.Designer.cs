@@ -30,13 +30,13 @@ namespace Pop_it_GUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_lanplay = new System.Windows.Forms.Button();
             this.btn_kilepes = new System.Windows.Forms.Button();
             this.btn_generalas = new System.Windows.Forms.Button();
             this.btn_jatek = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_aktual_verzio = new System.Windows.Forms.Label();
-            this.btn_lanplay = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,16 @@ namespace Pop_it_GUI
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menü";
+            // 
+            // btn_lanplay
+            // 
+            this.btn_lanplay.Location = new System.Drawing.Point(17, 53);
+            this.btn_lanplay.Name = "btn_lanplay";
+            this.btn_lanplay.Size = new System.Drawing.Size(226, 28);
+            this.btn_lanplay.TabIndex = 3;
+            this.btn_lanplay.Text = "Többjátékos mód (LAN)";
+            this.btn_lanplay.UseVisualStyleBackColor = true;
+            this.btn_lanplay.Click += new System.EventHandler(this.btn_lanplay_Click);
             // 
             // btn_kilepes
             // 
@@ -112,16 +122,6 @@ namespace Pop_it_GUI
             this.lbl_aktual_verzio.TabIndex = 9;
             this.lbl_aktual_verzio.Text = "v1.0";
             // 
-            // btn_lanplay
-            // 
-            this.btn_lanplay.Location = new System.Drawing.Point(17, 53);
-            this.btn_lanplay.Name = "btn_lanplay";
-            this.btn_lanplay.Size = new System.Drawing.Size(226, 28);
-            this.btn_lanplay.TabIndex = 3;
-            this.btn_lanplay.Text = "Többjátékos mód (LAN)";
-            this.btn_lanplay.UseVisualStyleBackColor = true;
-            this.btn_lanplay.Click += new System.EventHandler(this.btn_lanplay_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +136,7 @@ namespace Pop_it_GUI
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Menü]";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -28,13 +28,13 @@ namespace Pop_it_GUI
             for (int i = 0; i < valasztott_palya.GetLength(0); i++)
             {
                 dgv_jatekter.Columns.Add(i.ToString(), i.ToString());
-                dgv_jatekter.Columns[i].Width = (dgv_jatekter.Width / valasztott_palya.GetLength(1))-2;
+                //dgv_jatekter.Columns[i].Width = (dgv_jatekter.Width / valasztott_palya.GetLength(1));
             }
             for (int i = 0; i < valasztott_palya.GetLength(0); i++)
             {
                 int rowId = dgv_jatekter.Rows.Add();
                 DataGridViewRow row = dgv_jatekter.Rows[rowId];
-                row.Height = (dgv_jatekter.Height / valasztott_palya.GetLength(0))-2;
+                row.Height = (dgv_jatekter.Height / valasztott_palya.GetLength(0));
                 for (int ii = 0; ii < valasztott_palya.GetLength(1); ii++)
                 {
                     row.Cells[ii].Value = valasztott_palya[i, ii];
@@ -47,7 +47,9 @@ namespace Pop_it_GUI
 
         private void JatekForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            //menü mutatása ha a from bezáródik
+            var menu = new Form1();
+            menu.Show();
         }
 
         private void lbl_ervenyesites_Click(object sender, EventArgs e)

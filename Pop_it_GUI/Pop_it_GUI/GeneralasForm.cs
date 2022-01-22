@@ -16,5 +16,12 @@ namespace Pop_it_GUI
         {
             InitializeComponent();
         }
+
+        private void GeneralasForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //menü mutatása ha a from bezáródik
+            var menu = new Form1();
+            menu.Show();
+        }
     }
 }

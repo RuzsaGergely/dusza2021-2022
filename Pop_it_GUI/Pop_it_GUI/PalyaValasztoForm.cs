@@ -53,9 +53,10 @@ namespace Pop_it_GUI
 
         private void JatekIndit()
         {
-            JatekForm jatek = new JatekForm(listbox_palyak.SelectedIndex, palyak);
+            //a kijelölt pálya in továbbadása, kijelölés hiányában az 1-es indexet adja tovább
+            JatekForm jatek = new JatekForm((listbox_palyak.SelectedIndex != -1)? listbox_palyak.SelectedIndex : 1, palyak);
             jatek.Show();
-            this.Close();
+            this.Hide();
         }
         static Szinek szines = new Szinek();
         private void listbox_palyak_SelectedIndexChanged(object sender, EventArgs e)
@@ -91,6 +92,18 @@ namespace Pop_it_GUI
             {
                 JatekIndit();
             }
+        }
+
+        private void PalyaValasztoForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //menü mutatása ha a from bezáródik
+            var menu = new Form1();
+            menu.Show();
+        }
+
+        private void PalyaValasztoForm_FormClosed_1(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }
