@@ -20,7 +20,7 @@ namespace Pop_it_GUI
             InitializeComponent();
             palyak = lista;
             jatek = new JatekMenedzser(dgv_jatekter, lbl_jatekos, this);
-            jatek.Render(palyak[jatek_id]);
+            jatek.Render(palyak[jatek_id]/*PalyaGenerator.General(1, 10, 10)*/);
         }
 
         private void JatekForm_FormClosing(object sender, FormClosingEventArgs e)

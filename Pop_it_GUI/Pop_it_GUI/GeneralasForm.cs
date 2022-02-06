@@ -23,5 +23,10 @@ namespace Pop_it_GUI
             var menu = new Form1();
             menu.Show();
         }
+
+        private void GeneralasForm_DoubleClick(object sender, EventArgs e)
+        {
+            var asd = PalyaGenerator.General(1, 10, 4);
+        }
     }
 }

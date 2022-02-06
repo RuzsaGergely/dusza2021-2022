@@ -73,6 +73,7 @@
     <Compile Include="JatekMenedzser.cs" />
     <Compile Include="LanHandler.cs" />
     <Compile Include="Palya.cs" />
+    <Compile Include="PalyaGenerator.cs" />
     <Compile Include="PalyaValasztoForm.cs">
       <SubType>Form</SubType>
     </Compile>
