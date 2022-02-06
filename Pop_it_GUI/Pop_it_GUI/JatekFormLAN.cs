@@ -15,6 +15,7 @@ namespace Pop_it_GUI
     {
         static List<Palya> palyak;
         static JatekMenedzser jatek;
+        static LanHandler lan_kezelo;
         public JatekFormLAN(int jatek_id, List<Palya> lista)
         {
             InitializeComponent();
