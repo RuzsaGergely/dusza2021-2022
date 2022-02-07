@@ -371,6 +371,8 @@ namespace Pop_it_GUI
                 mod++;
 
 
+                //NEM HASZNÁLT KÓD
+
                 //int startPoz = new Random().Next(0, 2);
                 //int haladas = new Random().Next(1, 10);
                 //int fordul = new Random().Next(0, 2);
