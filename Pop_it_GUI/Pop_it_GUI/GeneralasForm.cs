@@ -84,9 +84,17 @@ namespace Pop_it_GUI
 
         private void bt_save_Click(object sender, EventArgs e)
         {
-            using (var writer = new StreamWriter(File.Create(Path.Combine("palyak", $"palya{cache[selectedID].id}.txt")), Encoding.UTF8))
+            string palya_neve = "";
+            if(tb_palyanev.TextLength > 0)
             {
-                writer.WriteLine($"palya{cache[selectedID].id}");
+                palya_neve = $"palya_{tb_palyanev.Text.ToLowerInvariant()}";
+            } else
+            {
+                palya_neve = $"palya_{cache[selectedID].id}";
+            }
+            using (var writer = new StreamWriter(File.Create(Path.Combine("palyak", $"{palya_neve}.txt")), Encoding.UTF8))
+            {
+                writer.WriteLine(palya_neve);
                 writer.WriteLine($"{cache[selectedID].palya.GetLength(0)};{cache[selectedID].palya.GetLength(0)}");
                 for (int i = 0; i < cache[selectedID].palya.GetLength(0); i++)
                 {

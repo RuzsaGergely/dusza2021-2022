@@ -46,6 +46,8 @@ namespace Pop_it_GUI
             this.bt_save = new System.Windows.Forms.Button();
             this.bt_delete = new System.Windows.Forms.Button();
             this.bt_exit = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tb_palyanev = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nm_curves)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nm_ID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nm_size)).BeginInit();
@@ -56,7 +58,7 @@ namespace Pop_it_GUI
             // 
             // nm_curves
             // 
-            this.nm_curves.Location = new System.Drawing.Point(6, 103);
+            this.nm_curves.Location = new System.Drawing.Point(6, 82);
             this.nm_curves.Maximum = new decimal(new int[] {
             10,
             0,
@@ -69,7 +71,7 @@ namespace Pop_it_GUI
             // 
             // nm_ID
             // 
-            this.nm_ID.Location = new System.Drawing.Point(6, 163);
+            this.nm_ID.Location = new System.Drawing.Point(6, 121);
             this.nm_ID.Maximum = new decimal(new int[] {
             999,
             0,
@@ -133,6 +135,8 @@ namespace Pop_it_GUI
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.groupBox1.Controls.Add(this.tb_palyanev);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -142,7 +146,7 @@ namespace Pop_it_GUI
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(573, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(136, 193);
+            this.groupBox1.Size = new System.Drawing.Size(136, 194);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generálási Faktorok";
@@ -162,7 +166,7 @@ namespace Pop_it_GUI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 87);
+            this.label2.Location = new System.Drawing.Point(3, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 4;
@@ -172,7 +176,7 @@ namespace Pop_it_GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 147);
+            this.label1.Location = new System.Drawing.Point(3, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 3;
@@ -184,6 +188,7 @@ namespace Pop_it_GUI
             this.groupBox2.Controls.Add(this.tb_current);
             this.groupBox2.Controls.Add(this.bg_prev_back);
             this.groupBox2.Controls.Add(this.bt_prev_for);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(573, 437);
             this.groupBox2.Name = "groupBox2";
@@ -229,33 +234,33 @@ namespace Pop_it_GUI
             // bt_generate
             // 
             this.bt_generate.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_generate.Location = new System.Drawing.Point(573, 211);
+            this.bt_generate.Location = new System.Drawing.Point(573, 229);
             this.bt_generate.Name = "bt_generate";
             this.bt_generate.Size = new System.Drawing.Size(136, 40);
             this.bt_generate.TabIndex = 6;
-            this.bt_generate.Text = "generálás";
+            this.bt_generate.Text = "Generálás";
             this.bt_generate.UseVisualStyleBackColor = true;
             this.bt_generate.Click += new System.EventHandler(this.bt_generate_Click);
             // 
             // bt_save
             // 
             this.bt_save.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_save.Location = new System.Drawing.Point(573, 271);
+            this.bt_save.Location = new System.Drawing.Point(573, 275);
             this.bt_save.Name = "bt_save";
             this.bt_save.Size = new System.Drawing.Size(136, 40);
             this.bt_save.TabIndex = 7;
-            this.bt_save.Text = "mentés";
+            this.bt_save.Text = "Mentés";
             this.bt_save.UseVisualStyleBackColor = true;
             this.bt_save.Click += new System.EventHandler(this.bt_save_Click);
             // 
             // bt_delete
             // 
             this.bt_delete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_delete.Location = new System.Drawing.Point(573, 331);
+            this.bt_delete.Location = new System.Drawing.Point(573, 321);
             this.bt_delete.Name = "bt_delete";
             this.bt_delete.Size = new System.Drawing.Size(136, 40);
             this.bt_delete.TabIndex = 8;
-            this.bt_delete.Text = "törlés";
+            this.bt_delete.Text = "Törlés";
             this.bt_delete.UseVisualStyleBackColor = true;
             this.bt_delete.Click += new System.EventHandler(this.bt_delete_Click);
             // 
@@ -263,19 +268,36 @@ namespace Pop_it_GUI
             // 
             this.bt_exit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_exit.ForeColor = System.Drawing.Color.Red;
-            this.bt_exit.Location = new System.Drawing.Point(573, 391);
+            this.bt_exit.Location = new System.Drawing.Point(573, 367);
             this.bt_exit.Name = "bt_exit";
             this.bt_exit.Size = new System.Drawing.Size(136, 40);
             this.bt_exit.TabIndex = 9;
-            this.bt_exit.Text = "kilépés";
+            this.bt_exit.Text = "Kilépés";
             this.bt_exit.UseVisualStyleBackColor = true;
             this.bt_exit.Click += new System.EventHandler(this.bt_exit_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(3, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Pályanév:";
+            // 
+            // tb_palyanev
+            // 
+            this.tb_palyanev.Location = new System.Drawing.Point(6, 160);
+            this.tb_palyanev.Name = "tb_palyanev";
+            this.tb_palyanev.Size = new System.Drawing.Size(119, 20);
+            this.tb_palyanev.TabIndex = 7;
             // 
             // GeneralasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 567);
+            this.ClientSize = new System.Drawing.Size(721, 566);
             this.Controls.Add(this.bt_exit);
             this.Controls.Add(this.bt_delete);
             this.Controls.Add(this.bt_save);
@@ -285,7 +307,7 @@ namespace Pop_it_GUI
             this.Controls.Add(this.dgv_jatekter);
             this.Name = "GeneralasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - by Csodacsapat [Generálás]";
+            this.Text = "Pop it! GUI - by Csodacsapat [Generátor]";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GeneralasForm_FormClosed);
             this.DoubleClick += new System.EventHandler(this.GeneralasForm_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.nm_curves)).EndInit();
@@ -318,5 +340,7 @@ namespace Pop_it_GUI
         private System.Windows.Forms.Button bt_save;
         private System.Windows.Forms.Button bt_delete;
         private System.Windows.Forms.Button bt_exit;
+        private System.Windows.Forms.TextBox tb_palyanev;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -13,19 +13,12 @@ namespace Pop_it_GUI
 {
     public partial class PalyaValasztoForm : Form
     {
-        public PalyaValasztoForm(bool lan)
+        public PalyaValasztoForm()
         {
             InitializeComponent();
             PalyakBeolvasas();
-            if (lan)
-            {
-                btn_csatlakozas.Enabled = true;
-                LAN = true;
-            }
-                
         }
         static List<Palya> palyak = new List<Palya>();
-        static bool LAN;
 
         public void PalyakBeolvasas()
         {
@@ -59,17 +52,9 @@ namespace Pop_it_GUI
         private void JatekIndit()
         {
             //a kijelölt pálya in továbbadása, kijelölés hiányában az 1-es indexet adja tovább
-            if (LAN)
-            {
-                JatekForm jatek = new JatekForm((listbox_palyak.SelectedIndex != -1) ? listbox_palyak.SelectedIndex : 1, palyak);
-                jatek.Show();
-                this.Hide();
-            } else
-            {
-                JatekFormLAN jatek = new JatekFormLAN((listbox_palyak.SelectedIndex != -1) ? listbox_palyak.SelectedIndex : 1, palyak);
-                jatek.Show();
-                this.Hide();
-            }
+            JatekForm jatek = new JatekForm((listbox_palyak.SelectedIndex != -1) ? listbox_palyak.SelectedIndex : 1, palyak);
+            jatek.Show();
+            this.Hide();
         }
         static Szinek szines = new Szinek();
         private void listbox_palyak_SelectedIndexChanged(object sender, EventArgs e)

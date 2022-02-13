@@ -91,11 +91,11 @@
     <Compile Include="GeneralasForm.Designer.cs">
       <DependentUpon>GeneralasForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="JatekFormLAN.cs">
+    <Compile Include="Hub.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JatekFormLAN.Designer.cs">
-      <DependentUpon>JatekFormLAN.cs</DependentUpon>
+    <Compile Include="Hub.Designer.cs">
+      <DependentUpon>Hub.cs</DependentUpon>
     </Compile>
     <Compile Include="JatekForm.cs">
       <SubType>Form</SubType>
@@ -104,7 +104,7 @@
       <DependentUpon>JatekForm.cs</DependentUpon>
     </Compile>
     <Compile Include="JatekMenedzser.cs" />
-    <Compile Include="LanHandler.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Palya.cs" />
     <Compile Include="PalyaGenerator.cs" />
     <Compile Include="PalyaValasztoForm.cs">
@@ -122,8 +122,8 @@
     <EmbeddedResource Include="GeneralasForm.resx">
       <DependentUpon>GeneralasForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="JatekFormLAN.resx">
-      <DependentUpon>JatekFormLAN.cs</DependentUpon>
+    <EmbeddedResource Include="Hub.resx">
+      <DependentUpon>Hub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JatekForm.resx">
       <DependentUpon>JatekForm.cs</DependentUpon>

@@ -30,7 +30,7 @@ namespace Pop_it_GUI
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_lanplay = new System.Windows.Forms.Button();
+            this.btn_popithub = new System.Windows.Forms.Button();
             this.btn_kilepes = new System.Windows.Forms.Button();
             this.btn_generalas = new System.Windows.Forms.Button();
             this.btn_jatek = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@ namespace Pop_it_GUI
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn_lanplay);
+            this.groupBox1.Controls.Add(this.btn_popithub);
             this.groupBox1.Controls.Add(this.btn_kilepes);
             this.groupBox1.Controls.Add(this.btn_generalas);
             this.groupBox1.Controls.Add(this.btn_jatek);
@@ -53,15 +53,15 @@ namespace Pop_it_GUI
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Menü";
             // 
-            // btn_lanplay
+            // btn_popithub
             // 
-            this.btn_lanplay.Location = new System.Drawing.Point(17, 53);
-            this.btn_lanplay.Name = "btn_lanplay";
-            this.btn_lanplay.Size = new System.Drawing.Size(226, 28);
-            this.btn_lanplay.TabIndex = 3;
-            this.btn_lanplay.Text = "Többjátékos mód (LAN)";
-            this.btn_lanplay.UseVisualStyleBackColor = true;
-            this.btn_lanplay.Click += new System.EventHandler(this.btn_lanplay_Click);
+            this.btn_popithub.Location = new System.Drawing.Point(17, 53);
+            this.btn_popithub.Name = "btn_popithub";
+            this.btn_popithub.Size = new System.Drawing.Size(226, 28);
+            this.btn_popithub.TabIndex = 3;
+            this.btn_popithub.Text = "Pop it! - Hub";
+            this.btn_popithub.UseVisualStyleBackColor = true;
+            this.btn_popithub.Click += new System.EventHandler(this.btn_popithub_Click);
             // 
             // btn_kilepes
             // 
@@ -116,7 +116,7 @@ namespace Pop_it_GUI
             // lbl_aktual_verzio
             // 
             this.lbl_aktual_verzio.AutoSize = true;
-            this.lbl_aktual_verzio.Location = new System.Drawing.Point(1, 249);
+            this.lbl_aktual_verzio.Location = new System.Drawing.Point(3, 256);
             this.lbl_aktual_verzio.Name = "lbl_aktual_verzio";
             this.lbl_aktual_verzio.Size = new System.Drawing.Size(28, 13);
             this.lbl_aktual_verzio.TabIndex = 9;
@@ -127,7 +127,7 @@ namespace Pop_it_GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(391, 262);
+            this.ClientSize = new System.Drawing.Size(386, 270);
             this.Controls.Add(this.lbl_aktual_verzio);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -152,7 +152,7 @@ namespace Pop_it_GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_aktual_verzio;
-        private System.Windows.Forms.Button btn_lanplay;
+        private System.Windows.Forms.Button btn_popithub;
     }
 }
 

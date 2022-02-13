@@ -36,16 +36,7 @@ namespace Pop_it_GUI
             //menü elrejtése
             Hide();
             //pályaválasztó menü mutatása
-            PalyaValasztoForm valaszto = new PalyaValasztoForm(false);
-            valaszto.Show();
-        }
-
-        private void btn_lanplay_Click(object sender, EventArgs e)
-        {
-            //menü elrejtése
-            Hide();
-            //LAN pályaválasztó menü mutatása
-            PalyaValasztoForm valaszto = new PalyaValasztoForm(true);
+            PalyaValasztoForm valaszto = new PalyaValasztoForm();
             valaszto.Show();
         }
 
@@ -54,6 +45,12 @@ namespace Pop_it_GUI
             //a kilépés gomb használata nélkül se fusson a háttérben
             //ha bármely okból becsukódik a form, akkor kilép a program
             Environment.Exit(0);
+        }
+
+        private void btn_popithub_Click(object sender, EventArgs e)
+        {
+            Hub hub = new Hub();
+            hub.Show();
         }
     }
 }
