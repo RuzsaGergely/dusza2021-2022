@@ -8,19 +8,28 @@ namespace Pop_it_GUI
 {
     static class PalyaGenerator
     {
+        //jelenleg lementetlen pályák
         private static List<Palya> cache = new List<Palya>();
+        //pályával visszatérő eljárás
         public static Palya General(int pID, int meret, int kanyarSz)
         {
+            //jelenleg használt karakter ID
             int mod = 1;
+            //üres mátrix (későbbi pálya)
             int[,] raw = new int[meret, meret];
+            //pályán elhelyezkedő, hajlított vonalak generálása
             KanyarGen(ref raw, kanyarSz, ref mod);
+            //a pálya egyenes vonalainak generálása
             Feltolt(ref raw, ref mod);
+            //a pályán elhelyezkedő számok lecsökkentése (karakterré alakításhoz)
             Minimalise(ref raw);
+            //
             return new Palya(pID, "", toChar(raw));
         }
 
         private static void Minimalise(ref int[,] x)
         {
+            //összes különböző karakter kigyűjtése
             var sample = new List<int>();
             for (int i = 0; i < x.GetLength(0); i++)
             {
@@ -30,7 +39,10 @@ namespace Pop_it_GUI
                         sample.Add(x[i, j]);
                 }
             }
+            //
 
+            //azonos karakterek keresése, kicserélése
+            //szorzás -1-el -> nincs szerkesztés utáni azonosság
             for (int i = 0; i < sample.Count; i++)
             {
                 for (int j = 0; j < x.GetLength(0); j++)
@@ -44,7 +56,9 @@ namespace Pop_it_GUI
                     }
                 }
             }
+            //
 
+            //a -1-es szörzás visszaállítása
             for (int i = 0; i < x.GetLength(0); i++)
             {
                 for (int j = 0; j < x.GetLength(0); j++)
@@ -56,6 +70,7 @@ namespace Pop_it_GUI
 
         private static void Feltolt(ref int[,] onlyLines, ref int mod)
         {
+            //nem elfoglalt helyek feltöltése mod-al, elfoglalt helyek esetén a mod növelése
             for (int i = 0; i < onlyLines.GetLength(0); i++)
             {
                 for (int j = 0; j < onlyLines.GetLength(0); j++)
@@ -73,15 +88,17 @@ namespace Pop_it_GUI
             }
         }
 
+        //számokat karakterré alakító függvény
         private static char[,] toChar(int[,] tmp)
         {
-            char[] abc = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '@', '&', '$', 'ß', '#', '<', '>', 'Đ', '%', '!', '~', '=', '-', 'ö', 'ü', 'ó', 'ő' };
+            //char[] abc = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '@', '&', '$', 'ß', '#', '<', '>', 'Đ', '%', '!', '~', '=', '-', 'ö', 'ü', 'ó', 'ő' };
             char[,] output = new char[tmp.GetLength(0), tmp.GetLength(1)];
             for (int i = 0; i < tmp.GetLength(0); i++)
             {
                 for (int j = 0; j < tmp.GetLength(1); j++)
                 {
-                    output[i, j] = abc[tmp[i, j]];
+                    //output[i, j] = abc[tmp[i, j]];
+                    output[i, j] = Convert.ToChar(65 + tmp[i, j]);
                 }
             }
             return output;
@@ -370,40 +387,6 @@ namespace Pop_it_GUI
                 //vonal meghúzása után, az id növelése
                 mod++;
 
-
-                //NEM HASZNÁLT KÓD
-
-                //int startPoz = new Random().Next(0, 2);
-                //int haladas = new Random().Next(1, 10);
-                //int fordul = new Random().Next(0, 2);
-                //int startIndex = new Random().Next(0, 9);
-
-                //for (int k = 0; k < item; k++)
-                //{
-                //    for (int i = 0; i < haladas; i++)
-                //    {
-                //        if (((startPoz == 0) ? ures[startIndex, i] : ures[i, startIndex]) == 0)
-                //        {
-                //            if (startPoz == 0)
-                //                ures[startIndex, i] = mod;
-                //            else
-                //                ures[i, startIndex] = mod;
-                //        }
-                //        else if (((startPoz == 0) ? ures[startIndex, i] : ures[i, startIndex]) == ((startPoz == 0) ? ures[startIndex, i - 1] : ures[i - 1, startIndex]))
-                //        {
-                //            continue;
-                //        }
-                //        else
-                //        {
-                //            mod++;
-                //        }
-                //    }
-                //    startPoz++;
-                //    haladas = new Random().Next(0, (fordul == 0)?9 - startIndex : startIndex);
-                //    fordul = new Random().Next(0, 2);
-                    
-                    
-                //}
             }
         }
     }

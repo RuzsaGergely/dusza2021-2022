@@ -29,7 +29,7 @@ namespace Pop_it_GUI
 
         public void PalyakBeolvasas()
         {
-            string[] fajlok = Directory.GetFiles(@"..\..\palyak");
+            string[] fajlok = Directory.GetFiles(@"palyak");
             int id = 0;
             foreach (var item in fajlok)
             {
