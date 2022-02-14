@@ -16,10 +16,11 @@ namespace Pop_it_GUI
     {
         public List<MapObject> online_maps = new List<MapObject>();
         public Logger logger = new Logger("logs.txt");
+        public string server_url = "https://dev.ruzger.hu/dusza/";
         public Hub()
         {
             InitializeComponent();
-            var request = WebRequest.Create("https://dev.ruzger.hu/dusza/dusza_szerver.php");
+            var request = WebRequest.Create($"{server_url}palyak-lista.php");
             var stream = request.GetResponse().GetResponseStream();
             var stream_reader = new StreamReader(stream);
             while (!stream_reader.EndOfStream)
@@ -71,7 +72,7 @@ namespace Pop_it_GUI
 
         private void btn_feltoltes_Click(object sender, EventArgs e)
         {
-
+            System.Diagnostics.Process.Start(server_url);
         }
     }
     public class MapObject

@@ -58,7 +58,7 @@ namespace Pop_it_GUI
             this.btn_popithub.Location = new System.Drawing.Point(17, 53);
             this.btn_popithub.Name = "btn_popithub";
             this.btn_popithub.Size = new System.Drawing.Size(226, 28);
-            this.btn_popithub.TabIndex = 3;
+            this.btn_popithub.TabIndex = 1;
             this.btn_popithub.Text = "Pop it! - Hub";
             this.btn_popithub.UseVisualStyleBackColor = true;
             this.btn_popithub.Click += new System.EventHandler(this.btn_popithub_Click);
@@ -69,7 +69,7 @@ namespace Pop_it_GUI
             this.btn_kilepes.Location = new System.Drawing.Point(17, 121);
             this.btn_kilepes.Name = "btn_kilepes";
             this.btn_kilepes.Size = new System.Drawing.Size(226, 28);
-            this.btn_kilepes.TabIndex = 2;
+            this.btn_kilepes.TabIndex = 3;
             this.btn_kilepes.Text = "Kilépés";
             this.btn_kilepes.UseVisualStyleBackColor = true;
             this.btn_kilepes.Click += new System.EventHandler(this.btn_kilepes_Click);
@@ -79,7 +79,7 @@ namespace Pop_it_GUI
             this.btn_generalas.Location = new System.Drawing.Point(17, 87);
             this.btn_generalas.Name = "btn_generalas";
             this.btn_generalas.Size = new System.Drawing.Size(226, 28);
-            this.btn_generalas.TabIndex = 1;
+            this.btn_generalas.TabIndex = 2;
             this.btn_generalas.Text = "Generálás";
             this.btn_generalas.UseVisualStyleBackColor = true;
             this.btn_generalas.Click += new System.EventHandler(this.btn_generalas_Click);
@@ -120,7 +120,7 @@ namespace Pop_it_GUI
             this.lbl_aktual_verzio.Name = "lbl_aktual_verzio";
             this.lbl_aktual_verzio.Size = new System.Drawing.Size(28, 13);
             this.lbl_aktual_verzio.TabIndex = 9;
-            this.lbl_aktual_verzio.Text = "v1.0";
+            this.lbl_aktual_verzio.Text = "v2.0";
             // 
             // Form1
             // 
