@@ -22,11 +22,11 @@ namespace Pop_it_GUI
 
         public void PalyakBeolvasas()
         {
-            string[] fajlok = Directory.GetFiles(@"palyak");
             if (!Directory.Exists("palyak"))
             {
                 Directory.CreateDirectory("palyak");
             }
+            string[] fajlok = Directory.GetFiles(@"palyak");
             int id = 0;
             foreach (var item in fajlok)
             {
@@ -50,7 +50,14 @@ namespace Pop_it_GUI
 
         private void btn_jatek_Click(object sender, EventArgs e)
         {
-            JatekIndit();
+            if(listbox_palyak.SelectedIndex < 0)
+            {
+                MessageBox.Show("Kérjük válasszon pályát!");
+            } else
+            {
+                JatekIndit();
+            }
+            
         }
 
         private void JatekIndit()

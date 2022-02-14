@@ -50,7 +50,7 @@ namespace Pop_it_GUI
             try
             {
                 MapObject file_name = (MapObject)lbox_onlinelist.SelectedItem;
-                client.DownloadFileAsync(new Uri((string)lbox_onlinelist.SelectedValue), $"./palyak/{file_name.MapName}");
+                client.DownloadFileAsync(new Uri((string)lbox_onlinelist.SelectedValue), $"./palyak/{file_name.MapName}.txt");
             }
             catch (Exception ex)
             {
