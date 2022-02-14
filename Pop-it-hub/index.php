@@ -29,7 +29,7 @@
             <div class="col mt-3">
                 <div class="card">
                     <div class="card-body">
-                    <form action="palya_feltoltes.php" method="post" enctype="multipart/form-data">
+                    <form action="palya_feltoltes.php" method="post" enctype="multipart/form-data" id="form">
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Feltöltendő pálya fájlja:</label>
                             <input class="form-control" type="file" id="fileToUpload" name="fileToUpload">
@@ -61,7 +61,7 @@
                         <h2>Formai követelmények (specifikáció)</h2>
                         <ul>
                             <li>A fájlnak <strong>.txt</strong> kiterjesztésűnek kell lennie!</li>
-                            <li>A fájl első sora tartalmazza a pálya nevét. Ennek nem kell megegyeznie a fájlnak a nevével, de javasolt. <strong>Figyelem!</strong> Az ellenőrző rendszer a fájlnak a nevét tekinti a pálya nevének, így ha az ütközik mással, akkor vissza fogja dobni!</li>
+                            <li>A fájl első sora tartalmazza a pálya nevét. <strong>Figyelem!</strong> Ennek a névnek egyedinek kell lennie! Amennyiben egy már létező pályának a nevét használja fel, úgy a rendszer visszadobja a feltöltött állományt!</li>
                             <li>A fájl második sora tartalmazza a pálya dimenzióit <strong>x;y</strong> formában.</li>
                             <li>A fájl további részében a második sorban leirtaknak megfelelő sorok és oszlopok következnek. Ez maga a pálya amivel a játékosok játszhatnak. Színkód könyvtárunk jelenleg <strong>105</strong> féle karaktert támogat.</li>
                         </ul>
@@ -124,18 +124,20 @@
             </div>
         </div>
         <div class="row">
-            <div class="col mt-3">
+            <div class="col mt-3 mb-3">
                 <div class="card">
                     <div class="card-body">
                        <h2>Aktuálisan elérhető pályáink:</h2>
                         <?php
-                            $mappa    = './palyak';
-                            $fajlok = scandir($mappa);
+                            $folder    = './palyak';
+                            $files = scandir($folder);
                             $host = "https://$_SERVER[HTTP_HOST]";
-                            
-                            foreach ($fajlok as $key => $value) {
+                            foreach ($files as $key => $value) {
                                 if($value != ".." && $value != "."){
-                                    echo "<a href='$host/dusza/palyak/$value' class='link-primary'>$key - $value</a><br>";
+                                    $f = fopen("palyak/".$value, 'r');
+                                    $line = trim(fgets($f));
+                                    fclose($f);
+                                    echo "<a href='$host/dusza/palyak/$value'>$key - $line</a><br>";
                                 }
                             }
                         ?>
@@ -145,5 +147,16 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script>
+        $(function() {
+        $('form').submit(function() {
+            if(!$("form input[type=file]").val()) {
+                alert('Kérlek válassz fájlt!');
+                return false;
+            }
+        });
+        });
+    </script>
 </body>
 </html>

@@ -91,6 +91,7 @@
             this.Controls.Add(this.btn_letoltes);
             this.Controls.Add(this.lbox_onlinelist);
             this.Name = "Hub";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Hub]";
             this.ResumeLayout(false);
 

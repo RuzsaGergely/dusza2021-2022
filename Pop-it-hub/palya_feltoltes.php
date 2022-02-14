@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pop-it hub #feltöltés#- by Csodacsapat</title>
+    <title>Pop-it hub [feltöltés]- by Csodacsapat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
@@ -21,16 +21,12 @@
     <?php
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $target_dir = "palyak/";
-        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $random_name = bin2hex(random_bytes(20));
+        $target_file = $target_dir . basename($random_name . ".txt");
         $check_dir = "pre/";
         $check_file = $check_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-        if (file_exists($target_file)) {
-            echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>Ez a pályanév foglalt, kérlek nevezd át a fájlodat!</div></div>";
-            $uploadOk = 0;
-        }
 
         if($fileType != "txt") {
             echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>Csak .txt kiterjesztésű állományok fogadhatóak el!</div></div>";
@@ -45,12 +41,13 @@
 
                 if($fileFormatOK == 1){
                     if(rename($check_file, $target_file)){
-                        echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #3bd14a'>A(z) ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " nevű pálya feltöltődött!</div></div>";
+                        echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #3bd14a'>Sikeres feltöltés!</div></div>";
                     } else {
                         echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>Elnézést, rendszerhiba történt. Próbáld meg újra!</div></div>";
                     }
                 } else {
                     echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>A feltöltött fájlod valamely specifikációnknak nem felelt meg. Kérlek javítsd ki a fájlodat és próbáld meg újra!</div></div>";
+                    unlink($check_file);
                 }
             } else {
                 echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>Elnézést, rendszerhiba történt. Próbáld meg újra!</div></div>";
@@ -64,19 +61,34 @@
         $map_size = explode(";", $file_lines[1]);
         if(intval($map_size[0]) != intval($map_size[1])){
             $return_value = 0;
-            print("Map sizes don't match!<br>");
+            echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>A térkép dimenziói nem egyeznek meg!</div></div>";
         }
         $trimmed_array = array_filter(array_map('trim', $file_lines));
         if(count($trimmed_array)-2 != intval($map_size[0])){
             $return_value = 0;
-            print("Map rows don't match!<br>");
+            echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>A térkép sorainak száma nem egyezik meg!</div></div>";
         }
-        for ($i=2; $i < strlen($trimmed_array); $i++) { 
-            if(strlen($trimmed_array[i]) != intval($map_size[1]) && !empty($trimmed_array[i])){
+        for ($i=2; $i < count($trimmed_array); $i++) {
+            if((strlen($trimmed_array[$i]) != intval($map_size[1])) || empty($trimmed_array[$i])){
                 $return_value = 0;
-                print("Map columns don't match!<br>");
+                echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>A térkép oszlopainak száma nem egyezik meg!</div></div>";
                 break;
             }
+        }
+        $folder    = './palyak';
+        $files = scandir($folder);
+        $map_names = array();
+        foreach ($files as $key => $value) {
+            if($value != ".." && $value != "."){
+                $f = fopen("palyak/".$value, 'r');
+                $line = trim(fgets($f));
+                fclose($f);
+                array_push($map_names, $line);
+            }
+        }
+        if (in_array(trim($file_lines[0]), $map_names)) {
+            echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>Ez a pályanév foglalt, kérlek nevezd át a pályádat a fájlban!</div></div>";
+            $return_value = 0;
         }
         return $return_value;
     }

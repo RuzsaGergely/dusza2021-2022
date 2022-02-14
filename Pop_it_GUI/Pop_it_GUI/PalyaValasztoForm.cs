@@ -23,6 +23,10 @@ namespace Pop_it_GUI
         public void PalyakBeolvasas()
         {
             string[] fajlok = Directory.GetFiles(@"palyak");
+            if (!Directory.Exists("palyak"))
+            {
+                Directory.CreateDirectory("palyak");
+            }
             int id = 0;
             foreach (var item in fajlok)
             {
