@@ -43,4 +43,19 @@ A `palyak-lista.php` szkript pedig visszaadja nekünk a pályák listáját. **F
 
 Az oldal felhasználók által is látható működését már részletesen ledokumentáltuk a felhasználói dokumentációban (II./2. fejezet), így itt arra nem térnénk ki, viszont a motorháztető alatti működését tekintsük át.
 
-### 3.1. A fájlfeltöltés menete
+### 3.1. A pályafeltöltés menete
+
+Az `index.php` által kiszolgált felületen ki kell választani a fájlt amit fel akarunk tölteni. Ezt egy POST request keretében továbbadja a `palya_feltoltese.php` oldalnak/szkriptnek. Ekkor sorrendben a következők történnek:
+- Létrehozza a szkript az esetlegesen jó pályának a randomizált nevét (ezt `random_bytes()` és `bin2hex()` függvényekkel érjük el)
+- Ellenőrzi, hogy a fájl kiterjesztése txt vagy sem. Amennyiben nem, akkor már bukottnak jelöli a feltöltést. Ennek megfelelően megjelenik egy hibaüzenet
+- Ha az előző ellenőrzésen átment a fájl, akkor azt egy ideiglenes mappába, a `pre/` mappába felmásolja. Majd arra a fájlra meghívja a `fileCheck()` eljárásunkat. Az alábbi ellenőrzéseket futtatja le:
+    - Ellenőrzi, hogy a térkép dimenziói megegyeznek-e (x;y), ha nem akkor elbukik a teszt.
+    - Ellenőrzi, hogy a fájl a dimenzióknak megfelelő mennyiségű sor van-e a fájlban, ha nem akkor elbukik a teszt.
+    - Ellenőrzi, hogy a fájl a dimenzióknak megfelelő mennyiségű oszlop van-e az egyes sorokban, ha nem akkor elbukik a teszt.
+    - Ellenőrzi, hogy a fájlnak a neve, tartalmaz-e speciális karaktert. Amennyiben igen, úgy elbukik a teszt.
+    - Végezetül, ellenőrzi, hogy található-e a listánkban már ugyanolyan nevű pálya (a fájl első sora!). Amennyiben igen, úgy elbukik a teszt.
+- Amennyiben a fájl ellenőrzés is lefutott rendben, akkor a már random generált fájlnevünknek megfelelően áthelyezi a `palyak/` mappába.
+- Amennyiben minden tesztünk sikeres volt és a fájlt is átmásolta, egy zöld keretben pozitív üzenet jelenik meg.
+
+### 3.2. Pályák lekérdezése
+A pályákat a kliens a `palyak-lista.php` fájl meghívásával tudja lekérni. A lekérdezésben visszatérő lista pontosvesszővel elválasztva adja vissza a pálya azonosítóját, nevét és elérhetőségét. Azok alapján tudja a fel
