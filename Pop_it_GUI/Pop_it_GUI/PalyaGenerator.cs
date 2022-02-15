@@ -179,19 +179,14 @@ namespace Pop_it_GUI
                         //hasonlóság eldöntése iránytól függően
                         case 0:
                             return map[curPoz.Item1, curPoz.Item2 - 1] == map[curPoz.Item1, curPoz.Item2];
-                            break;
                         case 1:
                             return map[curPoz.Item1 - 1, curPoz.Item2] == map[curPoz.Item1, curPoz.Item2];
-                            break;
                         case 2:
                             return map[curPoz.Item1, curPoz.Item2 + 1] == map[curPoz.Item1, curPoz.Item2];
-                            break;
                         case 3:
                             return map[curPoz.Item1 + 1, curPoz.Item2] == map[curPoz.Item1, curPoz.Item2];
-                            break;
                         default:
                             throw new IndexOutOfRangeException();
-                            break;
                     }
                 }
 

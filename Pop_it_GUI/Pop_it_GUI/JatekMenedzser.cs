@@ -47,7 +47,11 @@ namespace Pop_it_GUI
                     }
                     if (JatekVege())
                     {
-                        MessageBox.Show($"Játékos {jatekos} nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
+                        if(jatekos == 1)
+                            MessageBox.Show($"Játékos 2 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
+                        else
+                            MessageBox.Show($"Játékos 1 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
+
                         MessageBox.Show($"Statisztikák:\nJátékos 1 kinyomott mezői: {jatekos_stats[0]} db\nJátékos 2 kinyomott mezői: {jatekos_stats[1]} db", "Statisztika");
                         aktualis_form.Close();
                     }

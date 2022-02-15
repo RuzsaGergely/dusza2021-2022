@@ -90,7 +90,15 @@ namespace Pop_it_GUI
                 palya_neve = $"palya_{tb_palyanev.Text.ToLowerInvariant()}";
             } else
             {
-                palya_neve = $"palya_{cache[selectedID].id}";
+                try
+                {
+                    palya_neve = $"palya_{cache[selectedID].id}";
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Mentés előtt generálnia kell egy pályát!");
+                    return;
+                }
             }
             using (var writer = new StreamWriter(File.Create(Path.Combine("palyak", $"{palya_neve}.txt")), Encoding.UTF8))
             {
@@ -104,6 +112,7 @@ namespace Pop_it_GUI
                     }
                     writer.WriteLine();
                 }
+                //writer.Close();
             }
         }
 

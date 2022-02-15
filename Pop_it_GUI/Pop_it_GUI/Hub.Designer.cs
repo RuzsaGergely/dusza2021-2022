@@ -41,12 +41,12 @@
             this.lbox_onlinelist.FormattingEnabled = true;
             this.lbox_onlinelist.Location = new System.Drawing.Point(0, 0);
             this.lbox_onlinelist.Name = "lbox_onlinelist";
-            this.lbox_onlinelist.Size = new System.Drawing.Size(317, 238);
+            this.lbox_onlinelist.Size = new System.Drawing.Size(344, 238);
             this.lbox_onlinelist.TabIndex = 0;
             // 
             // btn_letoltes
             // 
-            this.btn_letoltes.Location = new System.Drawing.Point(21, 244);
+            this.btn_letoltes.Location = new System.Drawing.Point(34, 244);
             this.btn_letoltes.Name = "btn_letoltes";
             this.btn_letoltes.Size = new System.Drawing.Size(130, 40);
             this.btn_letoltes.TabIndex = 1;
@@ -56,14 +56,14 @@
             // 
             // pbar_status
             // 
-            this.pbar_status.Location = new System.Drawing.Point(45, 328);
+            this.pbar_status.Location = new System.Drawing.Point(62, 328);
             this.pbar_status.Name = "pbar_status";
             this.pbar_status.Size = new System.Drawing.Size(223, 30);
             this.pbar_status.TabIndex = 3;
             // 
             // lbl_download_status
             // 
-            this.lbl_download_status.Location = new System.Drawing.Point(94, 302);
+            this.lbl_download_status.Location = new System.Drawing.Point(108, 302);
             this.lbl_download_status.Name = "lbl_download_status";
             this.lbl_download_status.Size = new System.Drawing.Size(126, 23);
             this.lbl_download_status.TabIndex = 4;
@@ -72,7 +72,7 @@
             // 
             // btn_feltoltes
             // 
-            this.btn_feltoltes.Location = new System.Drawing.Point(166, 244);
+            this.btn_feltoltes.Location = new System.Drawing.Point(181, 244);
             this.btn_feltoltes.Name = "btn_feltoltes";
             this.btn_feltoltes.Size = new System.Drawing.Size(130, 40);
             this.btn_feltoltes.TabIndex = 5;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 372);
+            this.ClientSize = new System.Drawing.Size(344, 372);
             this.Controls.Add(this.btn_feltoltes);
             this.Controls.Add(this.lbl_download_status);
             this.Controls.Add(this.pbar_status);

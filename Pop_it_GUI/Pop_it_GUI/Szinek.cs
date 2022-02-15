@@ -13,23 +13,23 @@ namespace Pop_it_GUI
         public Szinek()
         {
             szinkodok.Add('a', Color.AliceBlue);
-            szinkodok.Add('b', Color.Aqua);
+            szinkodok.Add('b', Color.FromArgb(255, 180, 211, 178));
             szinkodok.Add('c', Color.Beige);
-            szinkodok.Add('d', Color.Chartreuse);
-            szinkodok.Add('e', Color.CornflowerBlue);
-            szinkodok.Add('f', Color.FromArgb(255, 146, 98, 127));
+            szinkodok.Add('d', Color.FromArgb(255, 248, 234, 252));
+            szinkodok.Add('e', Color.FromArgb(255, 170, 148, 153));
+            szinkodok.Add('f', Color.FromArgb(255, 184, 159, 163));
             szinkodok.Add('g', Color.PaleTurquoise);
-            szinkodok.Add('h', Color.HotPink);
+            szinkodok.Add('h', Color.FromArgb(255, 255, 255, 149));
             szinkodok.Add('i', Color.Khaki);
             szinkodok.Add('j', Color.LemonChiffon);
             szinkodok.Add('k', Color.LightSalmon);
-            szinkodok.Add('l', Color.Lime);
+            szinkodok.Add('l', Color.FromArgb(255, 201, 239, 230));
             szinkodok.Add('m', Color.Olive);
-            szinkodok.Add('n', Color.SeaGreen);
+            szinkodok.Add('n', Color.FromArgb(255, 234, 238, 224));
             szinkodok.Add('o', Color.SlateGray);
-            szinkodok.Add('p', Color.BlueViolet);
-            szinkodok.Add('q', Color.GreenYellow);
-            szinkodok.Add('r', Color.Purple);
+            szinkodok.Add('p', Color.FromArgb(255, 236, 238, 164));
+            szinkodok.Add('q', Color.FromArgb(255, 222, 200, 189));
+            szinkodok.Add('r', Color.FromArgb(255, 233, 189, 190));
             szinkodok.Add('s', Color.DimGray);
             szinkodok.Add('t', Color.Blue);
             szinkodok.Add('u', Color.Green);
