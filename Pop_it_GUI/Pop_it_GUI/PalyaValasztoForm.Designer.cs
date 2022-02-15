@@ -119,6 +119,7 @@ namespace Pop_it_GUI
             this.Name = "PalyaValasztoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Pálya választó]";
+            this.Activated += new System.EventHandler(this.PalyaValasztoForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PalyaValasztoForm_FormClosed);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

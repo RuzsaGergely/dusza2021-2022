@@ -49,6 +49,8 @@ Mindkét játékos ki tud választani több mezőt (akár hajlításokat is!) az
 
 Másik lehetőség a `shift` gomb és a nyilak együttes használata. Mindkét módszerrel kényelmes a játék, hisz nem csak egy gomb van a lépés érvényesítésére de a `space` gomb megnyomásával is elérhetjük azt.
 
+Amennyiben egymástól független, de mégis egy sorba tartozó mezőket akarunk lenyomni, akkor a `ctrl` gombot lenyomva, kattintással tudjuk ezt megtenni.
+
 Amennyiben a lépés érvényes volt (a fenti szabályoknak megfelelően), akkor az alsó szöveg figyelmeztet arra, hogy már a másik játékos köre van! Ha a lépésünk érvénytelen volt valami miatt, akkor az alábbi hibaüzenet jelenik meg.
 
 <figure align="center">

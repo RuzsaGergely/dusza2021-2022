@@ -11,11 +11,11 @@ namespace Pop_it_GUI
         }
         public void LogError(string Message)
         {
-            File.AppendAllText(LogFile, $"[Error] {Message}");
+            File.AppendAllText(LogFile, $"[Error] {Message}\n\r");
         }
         public void LogDebug(string Message)
         {
-            File.AppendAllText(LogFile, $"[Debug] {Message}");
+            File.AppendAllText(LogFile, $"[Debug] {Message}\n\r");
         }
     }
 }

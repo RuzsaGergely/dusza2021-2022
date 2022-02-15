@@ -50,7 +50,7 @@ namespace Pop_it_GUI
             try
             {
                 MapObject file_name = (MapObject)lbox_onlinelist.SelectedItem;
-                client.DownloadFileAsync(new Uri((string)lbox_onlinelist.SelectedValue), $"./palyak/{file_name.MapName}.txt");
+                client.DownloadFileAsync(new Uri((string)lbox_onlinelist.SelectedValue), $"./palyak/{file_name.MapName.Trim(new char[] { '\uFEFF', '\u200B' })}.txt");
                 logger.LogDebug($"Letöltött pálya: {file_name.MapName}.txt");
             }
             catch (Exception ex)
@@ -85,7 +85,7 @@ namespace Pop_it_GUI
         public MapObject(string[] row)
         {
             Id = Convert.ToInt32(row[0]);
-            MapName = row[1];
+            MapName = row[1].Trim();
             MapUrl = row[2];
         }
     }
