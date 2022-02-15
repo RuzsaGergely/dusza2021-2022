@@ -14,7 +14,7 @@ namespace Pop_it_GUI
 
         static public void makeMove(DataGridView map)
         {
-            //lehetséges karakterek kigyűjtése
+            //lehetséges karakterek kigyűjtése és azok megszámlálása
             var chars = new Dictionary<char, int>();
             for (int i = 0; i < map.Rows.Count; i++)
             {
@@ -35,10 +35,13 @@ namespace Pop_it_GUI
             }
 
             var rand = new Random();
-            //
+            //lépéshez használt karakter kiválasztása
             var character = chars.Keys.ElementAt(rand.Next(0, chars.Count));
+            //lépések mennyiségének kisorsolása
             var amount = rand.Next(1, chars[character]);
+            //lépések helyzetének kisorsolása
             var skip = rand.Next(0, chars[character] - amount);
+            //lépések megtétele
             for (int i = 0; i < map.Rows.Count; i++)
             {
                 for (int j = 0; j < map.Columns.Count; j++)
