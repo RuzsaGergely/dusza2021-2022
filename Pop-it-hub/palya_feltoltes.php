@@ -26,9 +26,9 @@
         $check_dir = "pre/";
         $check_file = $check_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
-        $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $fileType = strtolower(pathinfo($check_file,PATHINFO_EXTENSION));
 
-        if($fileType != "txt") {
+        if($fileType !== "txt") {
             echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>Csak .txt kiterjesztésű állományok fogadhatóak el!</div></div>";
             $uploadOk = 0;
         }
@@ -74,6 +74,11 @@
                 echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>A térkép oszlopainak száma nem egyezik meg!</div></div>";
                 break;
             }
+        }
+        if (preg_match('/[\'^£$%&*()}{@#~?><>,|=+¬-]/', $file))
+        {
+            $return_value = 0;
+            echo "<div class=\"card\"><div class=\"card-body text-light\" style='background-color: #d6475a'>A fájl neve szabálytalan karaktereket tartalmaz!</div></div>";
         }
         $folder    = './palyak';
         $files = scandir($folder);

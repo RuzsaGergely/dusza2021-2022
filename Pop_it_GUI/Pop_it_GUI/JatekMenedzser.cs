@@ -17,6 +17,7 @@ namespace Pop_it_GUI
         // 0 - jatekos 1
         // 1 - jatekos 2
         public int[] jatekos_stats { get; set; } = { 0, 0 };
+        public Logger error_logger = new Logger("logs.txt");
 
         public JatekMenedzser(DataGridView jatekter, Label jatekos_status, Form aktualis_form)
         {
@@ -45,16 +46,6 @@ namespace Pop_it_GUI
                     {
                         item.Style.BackColor = Color.Gray;
                     }
-                    if (JatekVege())
-                    {
-                        if(jatekos == 1)
-                            MessageBox.Show($"Játékos 2 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
-                        else
-                            MessageBox.Show($"Játékos 1 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
-
-                        MessageBox.Show($"Statisztikák:\nJátékos 1 kinyomott mezői: {jatekos_stats[0]} db\nJátékos 2 kinyomott mezői: {jatekos_stats[1]} db", "Statisztika");
-                        aktualis_form.Close();
-                    }
                     if (jatekos == 1)
                     {
                         jatekos_status.Text = "Játékos: Játékos 2";
@@ -67,6 +58,16 @@ namespace Pop_it_GUI
                         jatekos_stats[1] += jatekter_grid.SelectedCells.Count;
                         jatekos = 1;
                     }
+                    if (JatekVege())
+                    {
+                        if(jatekos == 1)
+                            MessageBox.Show($"Játékos 2 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
+                        else
+                            MessageBox.Show($"Játékos 1 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
+
+                        MessageBox.Show($"Statisztikák:\nJátékos 1 kinyomott mezői: {jatekos_stats[0]} db\nJátékos 2 kinyomott mezői: {jatekos_stats[1]} db", "Statisztika");
+                        aktualis_form.Close();
+                    }
                     KijelolesTorlese();
                 }
                 else
@@ -74,9 +75,9 @@ namespace Pop_it_GUI
                     MessageBox.Show("Érvénytelen lépés!", "Hiba!");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                error_logger.LogError(ex.ToString());
             }
         }
         private bool JatekVege()

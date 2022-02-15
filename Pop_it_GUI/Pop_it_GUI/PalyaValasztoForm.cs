@@ -25,6 +25,8 @@ namespace Pop_it_GUI
         {
             string[] fajlok = Directory.GetFiles(@"palyak");
             int id = 0;
+            listbox_palyak.Items.Clear();
+            palyak.Clear();
             foreach (var item in fajlok)
             {
                 StreamReader reader = new StreamReader(item);
@@ -39,6 +41,7 @@ namespace Pop_it_GUI
                         palya[i, ii] = sor[ii];
                     }
                 }
+                reader.Close();
                 palyak.Add(new Palya(id, nev, palya));
                 id++;
                 listbox_palyak.Items.Add(nev);
@@ -91,7 +94,6 @@ namespace Pop_it_GUI
             catch (Exception)
             {
                 logger.LogError("Hiba történt a pálya preview-jának kiírása közben.");
-
             }
         }
         private void listbox_palyak_KeyPress(object sender, KeyPressEventArgs e)
@@ -109,9 +111,9 @@ namespace Pop_it_GUI
             menu.Show();
         }
 
-        private void PalyaValasztoForm_FormClosed_1(object sender, FormClosedEventArgs e)
+        private void PalyaValasztoForm_Activated(object sender, EventArgs e)
         {
-            
+            PalyakBeolvasas();
         }
     }
 }

@@ -137,7 +137,7 @@
                                     $f = fopen("palyak/".$value, 'r');
                                     $line = trim(fgets($f));
                                     fclose($f);
-                                    echo "<a href='$host/dusza/palyak/$value'>$key - $line</a><br>";
+                                    echo "<a href='$host/dusza/palyak/$value'>$key - " . htmlspecialchars($line)."</a><br>";
                                 }
                             }
                         ?>
