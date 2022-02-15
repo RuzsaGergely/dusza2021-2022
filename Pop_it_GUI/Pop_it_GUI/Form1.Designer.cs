@@ -111,7 +111,7 @@ namespace Pop_it_GUI
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(164, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Duzsa Árpád Emlékverseny 2022";
+            this.label2.Text = "Dusza Árpád Emlékverseny 2022";
             // 
             // lbl_aktual_verzio
             // 

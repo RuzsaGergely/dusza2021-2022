@@ -5,7 +5,6 @@ namespace Pop_it_GUI
     public class Logger
     {
         private string LogFile;
-
         public Logger(string File_name)
         {
             LogFile = File_name;

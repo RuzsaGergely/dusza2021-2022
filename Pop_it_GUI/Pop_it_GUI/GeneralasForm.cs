@@ -113,6 +113,7 @@ namespace Pop_it_GUI
                     writer.WriteLine();
                 }
                 //writer.Close();
+                MessageBox.Show("A pálya mentése sikeres volt!");
             }
         }
 

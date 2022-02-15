@@ -19,13 +19,10 @@ namespace Pop_it_GUI
             PalyakBeolvasas();
         }
         static List<Palya> palyak = new List<Palya>();
+        public Logger logger = new Logger("logs.txt");
 
         public void PalyakBeolvasas()
         {
-            if (!Directory.Exists("palyak"))
-            {
-                Directory.CreateDirectory("palyak");
-            }
             string[] fajlok = Directory.GetFiles(@"palyak");
             int id = 0;
             foreach (var item in fajlok)
@@ -53,6 +50,7 @@ namespace Pop_it_GUI
             if(listbox_palyak.SelectedIndex < 0)
             {
                 MessageBox.Show("Kérjük válasszon pályát!");
+                logger.LogDebug("Kiválasztott pálya nélkül próbált játékot indítani.");
             } else
             {
                 JatekIndit();
@@ -92,6 +90,7 @@ namespace Pop_it_GUI
             }
             catch (Exception)
             {
+                logger.LogError("Hiba történt a pálya preview-jának kiírása közben.");
 
             }
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,9 +13,15 @@ namespace Pop_it_GUI
 {
     public partial class Form1 : Form
     {
+        public Logger logger = new Logger("logs.txt");
         public Form1()
         {
             InitializeComponent();
+            if (!Directory.Exists("palyak"))
+            {
+                Directory.CreateDirectory("palyak");
+                logger.LogDebug($"Palyak mappa elkészítve");
+            }
         }
 
         private void btn_kilepes_Click(object sender, EventArgs e)

@@ -51,6 +51,7 @@ namespace Pop_it_GUI
             {
                 MapObject file_name = (MapObject)lbox_onlinelist.SelectedItem;
                 client.DownloadFileAsync(new Uri((string)lbox_onlinelist.SelectedValue), $"./palyak/{file_name.MapName}.txt");
+                logger.LogDebug($"Letöltött pálya: {file_name.MapName}.txt");
             }
             catch (Exception ex)
             {
@@ -68,6 +69,7 @@ namespace Pop_it_GUI
         void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
             lbl_download_status.Text = "Letöltve!";
+            
         }
 
         private void btn_feltoltes_Click(object sender, EventArgs e)
