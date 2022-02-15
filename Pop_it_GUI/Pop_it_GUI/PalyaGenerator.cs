@@ -195,20 +195,20 @@ namespace Pop_it_GUI
                 var steps = rand.Next(1, size);
 
                 //irány alapján meghatározott hátsó szomszéd hasonlóságának meghatározása
-                bool isIdentical(int[,] map)
+                bool isIdentical(int[,] map, int curMod)
                 {
                     //irány alapján történő eldöntés
                     switch (direction)
                     {
                         //hasonlóság eldöntése iránytól függően
                         case 0:
-                            return map[curPoz.Item1, curPoz.Item2 - 1] == map[curPoz.Item1, curPoz.Item2];
+                            return map[curPoz.Item1, curPoz.Item2 - 1] == curMod && map[curPoz.Item1, curPoz.Item2] == curMod;
                         case 1:
-                            return map[curPoz.Item1 - 1, curPoz.Item2] == map[curPoz.Item1, curPoz.Item2];
+                            return map[curPoz.Item1 - 1, curPoz.Item2] == curMod && map[curPoz.Item1, curPoz.Item2] == curMod;
                         case 2:
-                            return map[curPoz.Item1, curPoz.Item2 + 1] == map[curPoz.Item1, curPoz.Item2];
+                            return map[curPoz.Item1, curPoz.Item2 + 1] == curMod && map[curPoz.Item1, curPoz.Item2] == curMod;
                         case 3:
-                            return map[curPoz.Item1 + 1, curPoz.Item2] == map[curPoz.Item1, curPoz.Item2];
+                            return map[curPoz.Item1 + 1, curPoz.Item2] == curMod && map[curPoz.Item1, curPoz.Item2] == curMod;
                         default:
                             throw new IndexOutOfRangeException();
                     }
@@ -228,7 +228,7 @@ namespace Pop_it_GUI
                                 ures[curPoz.Item1, curPoz.Item2] = mod;
                                 step(direction, ref curPoz);
                             }
-                            else if (isIdentical(ures) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
+                            else if (isIdentical(ures, mod) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
                             {
                                 step(direction, ref curPoz);
                             }
@@ -304,7 +304,7 @@ namespace Pop_it_GUI
                                         ures[curPoz.Item1, curPoz.Item2] = mod;
                                         step(direction, ref curPoz);
                                     }
-                                    else if (isIdentical(ures) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
+                                    else if (isIdentical(ures, mod) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
                                     {
                                         step(direction, ref curPoz);
                                     }
@@ -334,7 +334,7 @@ namespace Pop_it_GUI
                                         ures[curPoz.Item1, curPoz.Item2] = mod;
                                         step(direction, ref curPoz);
                                     }
-                                    else if (isIdentical(ures) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
+                                    else if (isIdentical(ures, mod) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
                                     {
                                         step(direction, ref curPoz);
                                     }
@@ -364,7 +364,7 @@ namespace Pop_it_GUI
                                         ures[curPoz.Item1, curPoz.Item2] = mod;
                                         step(direction, ref curPoz);
                                     }
-                                    else if (isIdentical(ures) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
+                                    else if (isIdentical(ures, mod) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
                                     {
                                         step(direction, ref curPoz);
                                     }
@@ -394,7 +394,7 @@ namespace Pop_it_GUI
                                         ures[curPoz.Item1, curPoz.Item2] = mod;
                                         step(direction, ref curPoz);
                                     }
-                                    else if (isIdentical(ures) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
+                                    else if (isIdentical(ures, mod) /*((direction == 0) ? ures[curPoz.Item1, curPoz.Item2 - 1] : ures[curPoz.Item1 - 1, curPoz.Item2]) == ures[curPoz.Item1, curPoz.Item2]*/)
                                     {
                                         step(direction, ref curPoz);
                                     }

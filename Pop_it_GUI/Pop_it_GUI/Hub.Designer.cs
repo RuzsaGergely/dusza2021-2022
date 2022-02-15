@@ -90,6 +90,9 @@
             this.Controls.Add(this.pbar_status);
             this.Controls.Add(this.btn_letoltes);
             this.Controls.Add(this.lbox_onlinelist);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(360, 411);
+            this.MinimumSize = new System.Drawing.Size(360, 411);
             this.Name = "Hub";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Hub]";

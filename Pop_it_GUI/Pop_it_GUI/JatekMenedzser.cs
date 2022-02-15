@@ -13,7 +13,8 @@ namespace Pop_it_GUI
         public DataGridView jatekter_grid { get; set; }
         public Label jatekos_status { get; set; }
         public Form aktualis_form { get; set; }
-        public int jatekos { get; set; }  = 1 ;
+        public int jatekos { get; set; }  = 1;
+        public bool aktivJatek = true;
         // 0 - jatekos 1
         // 1 - jatekos 2
         public int[] jatekos_stats { get; set; } = { 0, 0 };
@@ -66,6 +67,7 @@ namespace Pop_it_GUI
                             MessageBox.Show($"Játékos 1 nyert! Gratulálunk, szép játék volt!", "A játékos időnek vége");
 
                         MessageBox.Show($"Statisztikák:\nJátékos 1 kinyomott mezői: {jatekos_stats[0]} db\nJátékos 2 kinyomott mezői: {jatekos_stats[1]} db", "Statisztika");
+                        aktivJatek = false;
                         aktualis_form.Close();
                     }
                     KijelolesTorlese();

@@ -104,6 +104,7 @@
       <DependentUpon>JatekForm.cs</DependentUpon>
     </Compile>
     <Compile Include="JatekMenedzser.cs" />
+    <Compile Include="JatekosGep.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Palya.cs" />
     <Compile Include="PalyaGenerator.cs" />

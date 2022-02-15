@@ -133,6 +133,9 @@ namespace Pop_it_GUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(402, 309);
+            this.MinimumSize = new System.Drawing.Size(402, 309);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Menü]";

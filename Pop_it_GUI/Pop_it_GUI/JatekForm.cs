@@ -15,12 +15,14 @@ namespace Pop_it_GUI
     {
         static List<Palya> palyak;
         static JatekMenedzser jatek;
-        public JatekForm(int jatek_id, List<Palya> lista)
+        static bool botPlay;
+        public JatekForm(int jatek_id, List<Palya> lista, bool BotPlay)
         {
             InitializeComponent();
             palyak = lista;
             jatek = new JatekMenedzser(dgv_jatekter, lbl_jatekos, this);
             jatek.Render(palyak[jatek_id]/*PalyaGenerator.General(1, 10, 10)*/);
+            botPlay = BotPlay;
         }
 
         private void JatekForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -33,6 +35,11 @@ namespace Pop_it_GUI
         private void lbl_ervenyesites_Click(object sender, EventArgs e)
         {
             jatek.JatekEllenor();
+            if (Convert.ToBoolean(jatek.jatekos) && botPlay && jatek.aktivJatek)
+            {
+                JatekosGep.makeMove(jatek.jatekter_grid);
+                jatek.JatekEllenor();
+            }
         }
 
         private void JatekForm_KeyPress(object sender, KeyPressEventArgs e)

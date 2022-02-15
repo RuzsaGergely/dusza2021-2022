@@ -64,7 +64,7 @@ namespace Pop_it_GUI
         private void JatekIndit()
         {
             //a kijelölt pálya in továbbadása, kijelölés hiányában az 1-es indexet adja tovább
-            JatekForm jatek = new JatekForm((listbox_palyak.SelectedIndex != -1) ? listbox_palyak.SelectedIndex : 1, palyak);
+            JatekForm jatek = new JatekForm((listbox_palyak.SelectedIndex != -1) ? listbox_palyak.SelectedIndex : 1, palyak, cb_botPlay.Checked);
             jatek.Show();
             this.Hide();
         }

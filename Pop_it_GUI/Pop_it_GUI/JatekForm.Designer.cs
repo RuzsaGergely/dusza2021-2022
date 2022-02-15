@@ -82,6 +82,9 @@ namespace Pop_it_GUI
             this.Controls.Add(this.dgv_jatekter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(584, 633);
+            this.MinimumSize = new System.Drawing.Size(584, 633);
             this.Name = "JatekForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Játék]";

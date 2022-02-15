@@ -31,6 +31,7 @@ namespace Pop_it_GUI
         {
             this.listbox_palyak = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cb_botPlay = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_jatek = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,6 +55,7 @@ namespace Pop_it_GUI
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cb_botPlay);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -62,19 +64,29 @@ namespace Pop_it_GUI
             this.panel1.Size = new System.Drawing.Size(276, 434);
             this.panel1.TabIndex = 1;
             // 
+            // cb_botPlay
+            // 
+            this.cb_botPlay.AutoSize = true;
+            this.cb_botPlay.Location = new System.Drawing.Point(81, 409);
+            this.cb_botPlay.Name = "cb_botPlay";
+            this.cb_botPlay.Size = new System.Drawing.Size(99, 17);
+            this.cb_botPlay.TabIndex = 3;
+            this.cb_botPlay.Text = "Gép elleni játék";
+            this.cb_botPlay.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btn_jatek);
-            this.groupBox2.Location = new System.Drawing.Point(30, 341);
+            this.groupBox2.Location = new System.Drawing.Point(32, 338);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 81);
+            this.groupBox2.Size = new System.Drawing.Size(200, 65);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Inditópult";
             // 
             // btn_jatek
             // 
-            this.btn_jatek.Location = new System.Drawing.Point(20, 28);
+            this.btn_jatek.Location = new System.Drawing.Point(22, 19);
             this.btn_jatek.Name = "btn_jatek";
             this.btn_jatek.Size = new System.Drawing.Size(160, 35);
             this.btn_jatek.TabIndex = 1;
@@ -116,12 +128,16 @@ namespace Pop_it_GUI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listbox_palyak);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(511, 473);
+            this.MinimumSize = new System.Drawing.Size(511, 473);
             this.Name = "PalyaValasztoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pop it! GUI - by Csodacsapat [Pálya választó]";
             this.Activated += new System.EventHandler(this.PalyaValasztoForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PalyaValasztoForm_FormClosed);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_preview)).EndInit();
@@ -137,5 +153,6 @@ namespace Pop_it_GUI
         private System.Windows.Forms.Button btn_jatek;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox cb_botPlay;
     }
 }

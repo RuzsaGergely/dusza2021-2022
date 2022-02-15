@@ -117,6 +117,7 @@ namespace Pop_it_GUI
             szinkodok.Add((char)141, Color.FromArgb(255, 148, 223, 184));
             szinkodok.Add((char)142, Color.FromArgb(255, 108, 138, 130));
             szinkodok.Add((char)143, Color.FromArgb(255, 72, 181, 163));
+            szinkodok.Add('?', Color.FromArgb(255, 72, 181, 100));
         }
     }
 }
