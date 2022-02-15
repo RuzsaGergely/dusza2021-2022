@@ -60,7 +60,7 @@ namespace Pop_it_GUI
             this.btn_popithub.Name = "btn_popithub";
             this.btn_popithub.Size = new System.Drawing.Size(226, 28);
             this.btn_popithub.TabIndex = 1;
-            this.btn_popithub.Text = "Pop it! - Hub";
+            this.btn_popithub.Text = "Pop-it! - hub";
             this.btn_popithub.UseVisualStyleBackColor = true;
             this.btn_popithub.Click += new System.EventHandler(this.btn_popithub_Click);
             // 
@@ -81,7 +81,7 @@ namespace Pop_it_GUI
             this.btn_generalas.Name = "btn_generalas";
             this.btn_generalas.Size = new System.Drawing.Size(226, 28);
             this.btn_generalas.TabIndex = 2;
-            this.btn_generalas.Text = "Generálás";
+            this.btn_generalas.Text = "Pályagenerálás";
             this.btn_generalas.UseVisualStyleBackColor = true;
             this.btn_generalas.Click += new System.EventHandler(this.btn_generalas_Click);
             // 
@@ -101,9 +101,9 @@ namespace Pop_it_GUI
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(71, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 25);
+            this.label1.Size = new System.Drawing.Size(240, 25);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Pop it! - Csodacsapat";
+            this.label1.Text = "Pop-it! - Csodacsapat";
             // 
             // label2
             // 
@@ -140,7 +140,7 @@ namespace Pop_it_GUI
             this.MinimumSize = new System.Drawing.Size(402, 309);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - Csodacsapat [Menü]";
+            this.Text = "Pop-it! GUI - Csodacsapat [Menü]";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

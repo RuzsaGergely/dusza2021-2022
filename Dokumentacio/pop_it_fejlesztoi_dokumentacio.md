@@ -1,7 +1,62 @@
 # Pop-it! fejlesztői dokumentáció
+
 A Csodacsapat által fejlesztett Pop-it! implementáció C# nyelven, Windows Forms-ban készült. Pop-It! hub ami a szoftver kiegészítő társa pedig PHP nyelven íródott. Ez a dokumentáció a fejlesztőknek szól!
 
 ## I. Pop-it! kliens
+
+### 1. Menü
+
+A menü a nyitó eleme a programunknak, a felszínen csak gombokat látunk, amelyek különböző, más funkcióval bíró formokat nyitnak meg. Ennél többet tényleg nem is csinál a menü, kivéve azt az egyet, hogy a form elindulásakor ellenőrzi, hogy a `palyak` nevű mappa létezik-e. Amennyiben nem, úgy legyártja. Valamint logolja, hogy ez megtörtént (a `logger` osztályról az 5. fejezetben olvashat).
+
+```csharp
+if (!Directory.Exists("palyak"))
+{
+    Directory.CreateDirectory("palyak");
+    logger.LogDebug($"Palyak mappa elkészítve");
+}
+```
+
+### 2. Pályaválasztó
+
+A pályaválasztó ablakkal/formmal van lehetőségünk pályát választani, majd elindítani a játékot vele.\
+Ezen a formon van egy ListBox ami a pályák neveit tárolja, egy előnézeti ablak ami piciben betölti a pályát. Emellett van egy CheckBox elem, amivel előre definiálni tudjuk, hogy egy másik játékos ellen vagy a gép ellen akarunk játszani.
+
+Ez a form is rendelkezik egy példánnyal a `logger` osztályból a logolás végett. Emellett van egy példány a `szinek` osztályból, amivel szineket tudunk kérni az egyes karaktereknek (ez a preview miatt érdekes).
+
+Fontosabb eljárások a `PalyakBeolvasas()` ami a pályákat olvassa be a mappából és listázza ki, valamint állítja össze belőle a listánkat a pályákról (ehhez a `palya` osztályt használja a lista), a `JatekIndit()` ami átadja a pályát a JatekForm-nak (Játéktér). A `listbox_palyak_SelectedIndexChanged()` esemény bázisú eljárásunk felelős azért, hogy a pálya kiválasztásakor a preview ki legyen rajzolva.
+
+**Megjegyzés**: a preview, akár csak a Játéktér, DataGridView elemként jelenik meg, tehát gyakorlatban egy táblázatot renderelünk ki.
+
+### 3. Játéktér
+
+A JatekForm (játéktér) a lelke az egész programnak. Itt játszhatják le a játékosok (vagy a gép és egy játékos) a meccseket. Áll egy táblázatból (DataGridView elem), egy gombból, amellyel hitelesíteni lehet a lépést (be van rá kötve a Space gomb lenyomása ugyanarra az eseményre), valamint egy címke ami nyilván tartja, hogy éppen melyik játékos következik.
+
+A játéktér legfőbb osztálya a `JatekMenedzser` osztály, ami számon tartja a játékosok statisztikáit, ellenőrzi, hogy a lépés amit a felhasználó lépni kíván az érvényes-e. Emellett felelős azért, hogy a pályát kirenderelje (kirajzolja).\
+Fontosabb metódusai:
+- `Render()` - kirendereli a pályát
+- `JatekEllenor()` - ellenőrzi, hogy érvényes-e a lépés, kezeli azt ha vége van a játéknak
+- `KijelolesTorlese()` - törli a felhasználó kijelőlését a játéktérben
+
+### 4. Pop-it! - hub
+
+A Hub form segítségével tudunk tudunk pályákat letölteni a Hubról magáról. Ez a form is használja a `logger` osztályt, valamint van egy `MapObject` osztályunk létrehozva itt, ami azt a célt szolgálja, hogy a lekért pályáknak a neveit és linkjeit objektumokba foglaljuk és úgy irassuk ki a ListBox-ba azokat. A `MapObject` osztály:
+
+```csharp
+public class MapObject
+{
+    public int Id { get; set; }
+    public string MapName { get; set; }
+    public string MapUrl { get; set; }
+    public MapObject(string[] row)
+    {
+        Id = Convert.ToInt32(row[0]);
+        MapName = row[1].Trim();
+        MapUrl = row[2];
+    }
+}
+```
+
+### 5. Többször felhasznált osztályok
 
 ## II. Pop-it! generátor
 
@@ -14,7 +69,7 @@ Megjelenítéshez a Bootstrap 5 CSS, a hozzá tartozó JavaScript és jQuery kö
 
 ### 2. Az oldal strukúrája
 
-### 2.1. Felépítése
+#### 2.1. Felépítése
 
 Az oldal hiearchiája a következő:
 ```
@@ -31,7 +86,7 @@ Az oldal hiearchiája a következő:
 └── palyak-lista.php
 ```
 
-### 2.2. Részei
+#### 2.2. Részei
 
 Az `index.php` oldal szolgálja ki a főoldalt, amelyen lehetőségünk van feltölteni a térképet.
 
@@ -43,7 +98,7 @@ A `palyak-lista.php` szkript pedig visszaadja nekünk a pályák listáját. **F
 
 Az oldal felhasználók által is látható működését már részletesen ledokumentáltuk a felhasználói dokumentációban (II./2. fejezet), így itt arra nem térnénk ki, viszont a motorháztető alatti működését tekintsük át.
 
-### 3.1. A pályafeltöltés menete
+#### 3.1. A pályafeltöltés menete
 
 Az `index.php` által kiszolgált felületen ki kell választani a fájlt amit fel akarunk tölteni. Ezt egy POST request keretében továbbadja a `palya_feltoltese.php` oldalnak/szkriptnek. Ekkor sorrendben a következők történnek:
 - Létrehozza a szkript az esetlegesen jó pályának a randomizált nevét (ezt `random_bytes()` és `bin2hex()` függvényekkel érjük el)
@@ -57,5 +112,15 @@ Az `index.php` által kiszolgált felületen ki kell választani a fájlt amit f
 - Amennyiben a fájl ellenőrzés is lefutott rendben, akkor a már random generált fájlnevünknek megfelelően áthelyezi a `palyak/` mappába.
 - Amennyiben minden tesztünk sikeres volt és a fájlt is átmásolta, egy zöld keretben pozitív üzenet jelenik meg.
 
-### 3.2. Pályák lekérdezése
-A pályákat a kliens a `palyak-lista.php` fájl meghívásával tudja lekérni. A lekérdezésben visszatérő lista pontosvesszővel elválasztva adja vissza a pálya azonosítóját, nevét és elérhetőségét. Azok alapján tudja a fel
+#### 3.2. Pályák lekérdezése
+
+A pályákat a kliens a `palyak-lista.php` fájl meghívásával tudja lekérni. A lekérdezésben visszatérő lista pontosvesszővel elválasztva adja vissza a pálya azonosítóját, nevét és elérhetőségét. Azok alapján tudja a kliens kilistázni és letölteni a pályákat.
+
+Példa egy ilyen lekérdezés eredményére:
+```
+2;palya_vivi;https://dev.ruzger.hu/dusza/palyak/37810fa01a36262625ad6650ef8c4275eb7e7229.txt
+3;palya_asd;https://dev.ruzger.hu/dusza/palyak/8845a0afbae063cd96048f136bb41036ec86876d.txt
+```
+
+Fontos megjegyezni, hogy a pálya azonosítója relatív, a fájlok sorrendjétől függ. Például, tegyük fel, hogy van egy `a.txt`, `b.txt` és egy `c.txt` nevű fájlunk. Ebben az esetben az alábbi mintát fogja követni a listázásunk: **(0 -> ., 1 -> ..,) 2 -> a.txt, 3 -> b.txt, 4 -> c.txt** \
+Viszont ha kitöröljük a `b.txt` fájlunkat akkor: **(0 -> ., 1 -> ..,) 2 -> a.txt, 3 -> c.txt** a sorrend 

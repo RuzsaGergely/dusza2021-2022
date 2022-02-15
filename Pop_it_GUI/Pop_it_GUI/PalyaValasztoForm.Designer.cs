@@ -29,6 +29,7 @@ namespace Pop_it_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PalyaValasztoForm));
             this.listbox_palyak = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cb_botPlay = new System.Windows.Forms.CheckBox();
@@ -128,12 +129,13 @@ namespace Pop_it_GUI
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listbox_palyak);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(511, 473);
             this.MinimumSize = new System.Drawing.Size(511, 473);
             this.Name = "PalyaValasztoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - Csodacsapat [Pálya választó]";
+            this.Text = "Pop-it! GUI - Csodacsapat [Pálya választó]";
             this.Activated += new System.EventHandler(this.PalyaValasztoForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PalyaValasztoForm_FormClosed);
             this.panel1.ResumeLayout(false);

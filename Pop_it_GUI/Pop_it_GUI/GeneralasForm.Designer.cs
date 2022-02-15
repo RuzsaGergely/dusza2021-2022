@@ -312,7 +312,7 @@ namespace Pop_it_GUI
             this.MinimumSize = new System.Drawing.Size(737, 605);
             this.Name = "GeneralasForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - Csodacsapat [Generátor]";
+            this.Text = "Pop-it! GUI - Csodacsapat [Generátor]";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.GeneralasForm_FormClosed);
             this.DoubleClick += new System.EventHandler(this.GeneralasForm_DoubleClick);
             ((System.ComponentModel.ISupportInitialize)(this.nm_curves)).EndInit();
