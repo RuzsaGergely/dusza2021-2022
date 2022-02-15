@@ -35,6 +35,8 @@ namespace Pop_it_GUI
             this.nm_size = new System.Windows.Forms.NumericUpDown();
             this.dgv_jatekter = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tb_palyanev = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@ namespace Pop_it_GUI
             this.bt_save = new System.Windows.Forms.Button();
             this.bt_delete = new System.Windows.Forms.Button();
             this.bt_exit = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tb_palyanev = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nm_curves)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nm_ID)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nm_size)).BeginInit();
@@ -60,7 +60,7 @@ namespace Pop_it_GUI
             // 
             this.nm_curves.Location = new System.Drawing.Point(6, 82);
             this.nm_curves.Maximum = new decimal(new int[] {
-            10,
+            4,
             0,
             0,
             0});
@@ -150,6 +150,23 @@ namespace Pop_it_GUI
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Generálási Faktorok";
+            // 
+            // tb_palyanev
+            // 
+            this.tb_palyanev.Location = new System.Drawing.Point(6, 160);
+            this.tb_palyanev.Name = "tb_palyanev";
+            this.tb_palyanev.Size = new System.Drawing.Size(119, 20);
+            this.tb_palyanev.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(3, 144);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Pályanév:";
             // 
             // label3
             // 
@@ -275,23 +292,6 @@ namespace Pop_it_GUI
             this.bt_exit.Text = "Kilépés";
             this.bt_exit.UseVisualStyleBackColor = true;
             this.bt_exit.Click += new System.EventHandler(this.bt_exit_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(3, 144);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Pályanév:";
-            // 
-            // tb_palyanev
-            // 
-            this.tb_palyanev.Location = new System.Drawing.Point(6, 160);
-            this.tb_palyanev.Name = "tb_palyanev";
-            this.tb_palyanev.Size = new System.Drawing.Size(119, 20);
-            this.tb_palyanev.TabIndex = 7;
             // 
             // GeneralasForm
             // 

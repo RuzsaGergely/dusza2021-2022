@@ -16,11 +16,35 @@ namespace Pop_it_GUI
             //jelenleg használt karakter ID
             int mod = 1;
             //üres mátrix (későbbi pálya)
-            int[,] raw = new int[meret, meret];
-            //pályán elhelyezkedő, hajlított vonalak generálása
-            KanyarGen(ref raw, kanyarSz, ref mod);
-            //a pálya egyenes vonalainak generálása
-            Feltolt(ref raw, ref mod);
+            int[,] raw;
+            bool reset;
+            do
+            {
+                raw = new int[meret, meret];
+                //pályán elhelyezkedő, hajlított vonalak generálása
+                KanyarGen(ref raw, kanyarSz, ref mod);
+                //
+                //a pálya egyenes vonalainak generálása
+                Feltolt(ref raw, ref mod);
+                //
+                var chars = new Dictionary<int, int>();
+                for (int i = 0; i < raw.GetLength(0); i++)
+                {
+                    for (int j = 0; j < raw.GetLength(1); j++)
+                    {
+                        if (chars.ContainsKey(raw[i, j]))
+                        {
+                            chars[raw[i, j]]++;
+                        }
+                        else
+                        {
+                            chars.Add(raw[i, j], 1);
+                        }
+                    }
+                }
+                reset = chars.ContainsValue(1);
+            } while (reset);
+
             //a pályán elhelyezkedő számok lecsökkentése (karakterré alakításhoz)
             Minimalise(ref raw);
             //
@@ -210,13 +234,13 @@ namespace Pop_it_GUI
                             }
                             else
                             {
-                                step(direction, ref curPoz);
-                                mod++;
+                                //step(direction, ref curPoz);
+                                //mod++;
+                                break;
                             }
                         }
                         catch (Exception)
                         {
-                            step(direction, ref curPoz);
                         }
                         
                     }
@@ -226,11 +250,21 @@ namespace Pop_it_GUI
                     {
                         case 0:
                         case 2:
-                            direction = (rand.Next(0, 2) == 0) ? 3 : 1;
+                            if (curPoz.Item1 == 0)
+                                direction = 1;
+                            else if (curPoz.Item1 == size - 1)
+                                direction = 3;
+                            else
+                                direction = (rand.Next(0, 2) == 0) ? 3 : 1;
                             break;
                         case 1:                        
                         case 3:
-                            direction = (rand.Next(0, 2) == 0) ? 0 : 2;
+                            if (curPoz.Item2 == 0)
+                                direction = 0;
+                            else if (curPoz.Item2 == size - 1)
+                                direction = 2;
+                            else
+                                direction = (rand.Next(0, 2) == 0) ? 0 : 2;
                             break;
                     }
 
@@ -238,16 +272,16 @@ namespace Pop_it_GUI
                     switch (direction)
                     {
                         case 0:
-                            steps = rand.Next(0, size - curPoz.Item2);
+                            steps = rand.Next(1, size - curPoz.Item2);
                             break;
                         case 1:
-                            steps = rand.Next(0, size - curPoz.Item1);
+                            steps = rand.Next(1, size - curPoz.Item1);
                             break;
                         case 2:
-                            steps = rand.Next(0, curPoz.Item2);
+                            steps = rand.Next(1, curPoz.Item2 + 1);
                             break;
                         case 3:
-                            steps = rand.Next(0, curPoz.Item1);
+                            steps = rand.Next(1, curPoz.Item1 + 1);
                             break;
                     }
 
