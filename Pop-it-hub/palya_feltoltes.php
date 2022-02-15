@@ -88,7 +88,7 @@
                 $f = fopen("palyak/".$value, 'r');
                 $line = trim(fgets($f));
                 fclose($f);
-                array_push($map_names, $line);
+                array_push($map_names, str_replace(";",".",$line));
             }
         }
         if (in_array(trim($file_lines[0]), $map_names)) {
