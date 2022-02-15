@@ -8,6 +8,37 @@
 
 A Csodacsapat által fejlesztett Pop-it! implementáció C# nyelven, Windows Forms-ban készült. Pop-It! hub ami a szoftver kiegészítő társa pedig PHP nyelven íródott. Ez a dokumentáció a fejlesztőknek szól!
 
+## Tartalomjegyzék
+
+<!-- TOC -->
+
+- [Pop-it! fejlesztői dokumentáció](#pop-it-fejleszt%C5%91i-dokument%C3%A1ci%C3%B3)
+    - [Tartalomjegyzék](#tartalomjegyz%C3%A9k)
+    - [I. Pop-it! kliens](#i-pop-it-kliens)
+        - [Menü](#men%C3%BC)
+        - [Pályaválasztó](#p%C3%A1lyav%C3%A1laszt%C3%B3)
+            - [Gép elleni játék](#g%C3%A9p-elleni-j%C3%A1t%C3%A9k)
+                - [Részei](#r%C3%A9szei)
+        - [Játéktér](#j%C3%A1t%C3%A9kt%C3%A9r)
+        - [Pop-it! - hub](#pop-it---hub)
+        - [Többször felhasznált osztályok](#t%C3%B6bbsz%C3%B6r-felhaszn%C3%A1lt-oszt%C3%A1lyok)
+            - [Logger](#logger)
+            - [Palya](#palya)
+            - [Szinek](#szinek)
+    - [II. Pop-it! generátor](#ii-pop-it-gener%C3%A1tor)
+        - [Bevezetés](#bevezet%C3%A9s)
+        - [Eljárások és változók](#elj%C3%A1r%C3%A1sok-%C3%A9s-v%C3%A1ltoz%C3%B3k)
+    - [III. Pop-it! hub](#iii-pop-it-hub)
+        - [Felhasznált technológiák, könyvtárak](#felhaszn%C3%A1lt-technol%C3%B3gi%C3%A1k-k%C3%B6nyvt%C3%A1rak)
+        - [Az oldal strukúrája](#az-oldal-struk%C3%BAr%C3%A1ja)
+            - [Felépítése](#fel%C3%A9p%C3%ADt%C3%A9se)
+            - [Részei](#r%C3%A9szei)
+        - [Az oldal működése](#az-oldal-m%C5%B1k%C3%B6d%C3%A9se)
+            - [A pályafeltöltés menete](#a-p%C3%A1lyafelt%C3%B6lt%C3%A9s-menete)
+            - [Pályák lekérdezése](#p%C3%A1ly%C3%A1k-lek%C3%A9rdez%C3%A9se)
+
+<!-- /TOC -->
+
 ## I. Pop-it! kliens
 
 ### 1. Menü
@@ -77,7 +108,93 @@ public class MapObject
 }
 ```
 
+A Hub form konstruktorában történik a Hub tartalmának lekérése, feldolgozása, kiiratása.
+
+A *Letöltés* gomb eljárása (`btn_letoltes_Click()`) elindítja a fájl letöltését, valamint további eseményeket definiálunk. Ezek a `WebClient` osztály `DownloadProgressChanged` és `DownloadFileCompleted` eseményei. Mint azt olvashatjuk, az egyik esemény a letöltés állapotának változásakor (például a letölött adatmennyiség változása) és a fájl letöltésekor lefutó események.\
+Az előbbihez társuló eljárás a formon található ProgressBar-t viszi előre, valamint tájékoztat a letöltött adatmennyiségről, az utóbbi pedig kiírja ha elkészült a letöltés.
+
+```csharp
+void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+{
+    double bytesIn = double.Parse(e.BytesReceived.ToString());
+    double totalBytes = double.Parse(e.TotalBytesToReceive.ToString());
+    double percentage = bytesIn / totalBytes * 100;
+    lbl_download_status.Text = "Letöltve: " + e.BytesReceived + " / " + e.TotalBytesToReceive;
+    pbar_status.Value = int.Parse(Math.Truncate(percentage).ToString());
+}
+void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+{
+    lbl_download_status.Text = "Letöltve!";
+    
+}
+```
+
+A *Feltöltés* gomb megnyitja a hoszt gép alapértelmezett böngészőjében a Hub weboldalát. A jövőben akár lehet integrálni a szoftverbe a feltöltést.
+
 ### 5. Többször felhasznált osztályok
+
+#### 5.1 Logger
+
+A `logger` osztály felelős azért, hogy a játék közben előforduló hibákat és egyéb adatokat naplózzon..
+
+```csharp
+public class Logger
+{
+    private string LogFile;
+    public Logger(string File_name)
+    {
+        LogFile = File_name;
+    }
+    public void LogError(string Message)
+    {
+        File.AppendAllText(LogFile, $"[Error] {Message}\n\r");
+    }
+    public void LogDebug(string Message)
+    {
+        File.AppendAllText(LogFile, $"[Debug] {Message}\n\r");
+    }
+}
+```
+
+#### 5.2 Palya
+
+A `palya` osztályt adattároláshoz használjuk a programban. Ez felel azért, hogy a pályáinkat strukturáltan tárolhassuk a listánkban.
+
+```csharp
+public class Palya
+{
+    public int id { get; set; }
+    public string palya_neve { get; set; }
+    public char[,] palya { get; set; }
+    public Palya(int ID, string PALYA_NEVE, char[,] PALYA)
+    {
+        id = ID;
+        palya_neve = PALYA_NEVE;
+        palya = PALYA;
+    }
+}
+```
+
+#### 5.3 Szinek
+
+A `szinek` osztály felel azért, hogy mindenhol ugyanazokat a színeket érjük el, ugyanabból a listából.
+
+```csharp
+using System.Drawing;
+
+internal class Szinek
+{
+    public Dictionary<char, Color> szinkodok = new Dictionary<char, Color>();
+    public Szinek()
+    {
+        szinkodok.Add('a', Color.AliceBlue);
+        szinkodok.Add('b', Color.FromArgb(255, 180, 211, 178));
+        szinkodok.Add('c', Color.Beige);
+        szinkodok.Add('d', Color.FromArgb(255, 248, 234, 252));
+        ...
+    }
+}
+```
 
 ## II. Pop-it! generátor
 

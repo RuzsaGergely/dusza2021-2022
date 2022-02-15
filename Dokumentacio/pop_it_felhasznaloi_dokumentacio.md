@@ -34,14 +34,14 @@ Ahhoz, hogy egy másik játékossal játszani tudjunk kövessük az alábbi lép
 1. Nyomjunk rá a menüben a *Játék helyi gépen* gombra!
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/menu.png">
+    <img src="illusztraciok/menu.png">
     <figcaption align="center"><sup>1. ábra - Menü</sup></figcaption>
 </figure>
 
 2. A pályaválasztó menüben válasszunk ki kattinttással egy pályát a listából (amennyiben nincs pályánk a listában úgy *generálhatunk egyet*, vagy *letölthetünk a Pop-it! hub*-ról)!
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/palyavalaszto_menu.png">
+    <img src="illusztraciok/palyavalaszto_menu.png">
     <figcaption align="center"><sup>2. ábra - Pályaválasztó menü</sup></figcaption>
 </figure>
 
@@ -63,7 +63,7 @@ Ezek után a 3. ábrához hasonló ablakot kapunk. Ez az úgynevezett *játékt�
 > -- <cite>Forrás: Dusza Árpád Országos Programozói Emlékverseny 21-22 / regionális feladatsor</cite>
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/jatek.png">
+    <img src="illusztraciok/jatek.png">
     <figcaption align="center"><sup>3. ábra - A játéktér</sup></figcaption>
 </figure>
 
@@ -76,19 +76,19 @@ Amennyiben egymástól független, de mégis egy sorba tartozó mezőket akarunk
 Amennyiben a lépés érvényes volt (a fenti szabályoknak megfelelően), akkor az alsó szöveg figyelmeztet arra, hogy már a másik játékos köre van! Ha a lépésünk érvénytelen volt valami miatt, akkor az alábbi hibaüzenet jelenik meg.
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/ervenytelen_lepes.png">
+    <img src="illusztraciok/ervenytelen_lepes.png">
     <figcaption align="center"><sup>4. ábra - Érvénytelen lépés üzenet</sup></figcaption>
 </figure>
 
 Amennyiben a játéknak vége, úgy az alábbi üzenetek jelennek meg.
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/jatek_vege_nyert.png">
+    <img src="illusztraciok/jatek_vege_nyert.png">
     <figcaption align="center"><sup>5. ábra - A nyertest bejelentő üzenet</sup></figcaption>
 </figure>
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/jatek_vege_statisztika.png">
+    <img src="illusztraciok/jatek_vege_statisztika.png">
     <figcaption align="center"><sup>6. ábra - Statisztika a játékosok teljesítményéről</sup></figcaption>
 </figure>
 
@@ -107,7 +107,7 @@ A Pop-it! hub-nak két fontos része van. Az egyik maga a kliens, ami képes a p
 Ahhoz, hogy a hub-ról le tudjunk tölteni pályákat az 1. ábrán már latható menüben nyomjunk rá a *Pop-it! - Hub* gombra. Ekkor az alábbi ablak jelenik meg.
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/hub_menu.png">
+    <img src="illusztraciok/hub_menu.png">
     <figcaption align="center"><sup>7. ábra - A Pop-it! hub (kliens oldalon)</sup></figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ A pálya kiválasztása után nyomjunk rá a *Letöltés* gombra. Az alsó progr
 Ahhoz, hogy a hub-ra fel tudjunk tölteni pályák, ahhoz a 7. ábrán látható ablakban nyomjunk rá a *Feltöltés* gombra. Ez meg fogja nyitni az operációs rendszerünkben alapértelmezetten beállított böngészőt, benne pedig a Pop-it! hub oldalát.
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/hub_weblap.png">
+    <img src="illusztraciok/hub_weblap.png">
     <figcaption align="center"><sup>8. ábra - A Pop-it! hub (weboldal oldalon)</sup></figcaption>
 </figure>
 
@@ -130,14 +130,14 @@ A fájl feltöltő részen válassza ki a pálya állományát, majd kattintson 
 A feltöltött állomány először egy ellenőrzésen megy át, ami megvizsgálja, hogy minden formai követelményt kielégít-e a pálya. Amennyiben minden rendben van, úgy ilyen üzenet fogad minket:
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/hub_web_ok.png">
+    <img src="illusztraciok/hub_web_ok.png">
     <figcaption align="center"><sup>9. ábra - Sikeres ellenőrzést feltöltést jelző üzenet</sup></figcaption>
 </figure>
 
 Amennyiben valamilyen hiba/hibák fordult elő az ellenőrzés során, úgy ehhez hasonlót láthatunk:
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/hub_web_nemok.png">
+    <img src="illusztraciok/hub_web_nemok.png">
     <figcaption align="center"><sup>10. ábra - Sikertelen ellenőrzést feltöltést jelző üzenet</sup></figcaption>
 </figure>
 
@@ -160,7 +160,7 @@ A sikeres pálya feltöltéshez néhány elengedhetetlen követelménynek teljes
 A programban lehetőségünk van pályákat generálni, melyekkel később játszhatunk és/vagy feltölthetjük a Pop-it! hub-ra. Ahhoz, hogy megnyissuk a generátor, a már ismert menüben (1. ábra) nyomjunk rá a *Pályagenerálás* gombra! Ekkor az alábbi ablak lesz látható:
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/generator_ures.png">
+    <img src="illusztraciok/generator_ures.png">
     <figcaption align="center"><sup>11. ábra - Pályagenerátor</sup></figcaption>
 </figure>
 
@@ -174,7 +174,7 @@ A generálási faktorok a következők:
 Példa egy generálásra, beállított teszt paraméterekkel:
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/generator_teszt.png">
+    <img src="illusztraciok/generator_teszt.png">
     <figcaption align="center"><sup>12. ábra - Generátor teszt</sup></figcaption>
 </figure>
 
@@ -190,6 +190,6 @@ A *Kilépés* gombbal ki tudunk lépni a generátorból.
 **Figyelem!** Amennyiben üresen próbálunk meg menteni, úgy hibaüzenetet ad a program. 
 
 <figure align="center">
-    <img src="illusztraciok/felhasznaloi/generator_hiba.png">
+    <img src="illusztraciok/generator_hiba.png">
     <figcaption align="center"><sup>13. ábra - Hibaüzenet üres mentés esetén</sup></figcaption>
 </figure>
