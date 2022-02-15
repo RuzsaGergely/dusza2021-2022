@@ -29,6 +29,7 @@ namespace Pop_it_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(JatekForm));
             this.dgv_jatekter = new System.Windows.Forms.DataGridView();
             this.lbl_ervenyesites = new System.Windows.Forms.Button();
             this.lbl_jatekos = new System.Windows.Forms.Label();
@@ -81,13 +82,14 @@ namespace Pop_it_GUI
             this.Controls.Add(this.lbl_ervenyesites);
             this.Controls.Add(this.dgv_jatekter);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(584, 633);
             this.MinimumSize = new System.Drawing.Size(584, 633);
             this.Name = "JatekForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - by Csodacsapat [Játék]";
+            this.Text = "Pop it! GUI - Csodacsapat [Játék]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JatekForm_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.JatekForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jatekter)).EndInit();

@@ -29,6 +29,7 @@ namespace Pop_it_GUI
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_popithub = new System.Windows.Forms.Button();
             this.btn_kilepes = new System.Windows.Forms.Button();
@@ -98,11 +99,11 @@ namespace Pop_it_GUI
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(54, 9);
+            this.label1.Location = new System.Drawing.Point(71, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 25);
+            this.label1.Size = new System.Drawing.Size(239, 25);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Pop it! - by Csodacsapat";
+            this.label1.Text = "Pop it! - Csodacsapat";
             // 
             // label2
             // 
@@ -133,12 +134,13 @@ namespace Pop_it_GUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(402, 309);
             this.MinimumSize = new System.Drawing.Size(402, 309);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - by Csodacsapat [Menü]";
+            this.Text = "Pop it! GUI - Csodacsapat [Menü]";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

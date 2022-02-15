@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hub));
             this.lbox_onlinelist = new System.Windows.Forms.ListBox();
             this.btn_letoltes = new System.Windows.Forms.Button();
             this.pbar_status = new System.Windows.Forms.ProgressBar();
@@ -90,12 +91,13 @@
             this.Controls.Add(this.pbar_status);
             this.Controls.Add(this.btn_letoltes);
             this.Controls.Add(this.lbox_onlinelist);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(360, 411);
             this.MinimumSize = new System.Drawing.Size(360, 411);
             this.Name = "Hub";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - by Csodacsapat [Hub]";
+            this.Text = "Pop it! GUI - Csodacsapat [Hub]";
             this.ResumeLayout(false);
 
         }
