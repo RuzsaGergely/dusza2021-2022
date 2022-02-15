@@ -1,9 +1,61 @@
+<style>
+.system {
+    color: rgb(216, 160, 223);
+}
+</style>
+
 # Pop-it! fejlesztői dokumentáció
 A Csodacsapat által fejlesztett Pop-it! implementáció C# nyelven, Windows Forms-ban készült. Pop-It! hub ami a szoftver kiegészítő társa pedig PHP nyelven íródott. Ez a dokumentáció a fejlesztőknek szól!
 
 ## I. Pop-it! kliens
 
+### 1.
+
+### 2. Gép elleni játék
+
+A szegmensért a JatekosGep (`JatekosGep.cs`) osztály felel. Ezen osztály teszi lehetővé a gép ellen történő - egyszemélyes - játékot. Az osztály statikus hiszen a példányok létrehozása egy felesleges lépés lenne amely memória-pazarlást is jelentene.
+
+### 2.2 Részei
+
+#### `map` - karakterekből álló mátrix
+- Ezen változón keresztül látja az osztály a térképet.
+
+#### `makeMove()` - eljárás
+- Ezen eljárás felel a gép lépéseinek generálásáért, valamint azok helyzetének kijelöléséért
+    
+    - Az első <span class="system">for</span> ciklus feltölti az előzetesen létrehozott <span class="system">dictionary</span>-t a jelenleg elérhető cellák karaktereivel, valamint azok darabszámával
+
+    - Az itt létrehozott véletlenszerű változók (`character`, `amount`, `skip`) alapján választjuk ki a cellákat
+    
+    - A második <span class="system">for</span> ciklus kijelöli a kisorsolt cellákat, amelyeket így a `JatekEllenor()` véglegesíthet
+
 ## II. Pop-it! generátor
+
+### Bevezetés
+
+A szegmens teljes egészéért a PalyaGenerator (`Palyagenerator.cs`) osztály felel. Ezen statikus osztály önálló modulként képes generálni pályákat, amelyekkel a `Palya` osztály által meghatározott formátumban vissza is tud térni. A `General()` függvény 3 paramétere alapján 4-től 10-ig bármekkora pálya generálható, melynek indexe, neve valamint hajlításainak száma is szabadon változtatható. Ezt 4 privát eljárással valósítja meg.
+
+### Eljárások és változók
+
+ - `mod` - <span class="system">int</span> változó
+    - meghatározza a jelenleg használt karaktert, amely a hajlított vonalakhoz elengedhetetlen
+- `Direction` - <span class="system">int</span> változó
+    - 1 és 4 közti értékeket vehet fel
+    - meghatározza a `KanyarGen()`-ben lévő `step()` függvény haladási irányát
+- `KanyarGen()`
+    - Az üres pályára ezen függvény helyezi el a hajlított vonalakat
+    - Az egy vonalon lévő hajlítások száma itt történik kisorsolásra
+    - Rendelkezik 2 belső függvénnyel, ezek a `step()` valamint az `isIdentical()` néven hívhatók meg
+    - Lépésenként valósítja meg a vonalak generálását
+    - Véletlenszerű mennyiségben lép, majd fordul
+    - Amennyiben egy már létező vonalba fut, a `mod` változót növeli, majd elhalad alatta. Ezzel biztosítva, hogy nem létezik 2 ugyan olyan karakterrel rendelkező, nem összekötött sor
+- `Feltolt()`
+    - A függvény, amely egy hajlított vonalakkal rendelkező mátrixot lát el triviális karakterekkel (jobbról balra haladó vonalak)
+    - Amennyiben egy már elhelyezett, hajlított vonalba fut bele, a `mod` változó növelésével áthalad "alatta"
+- `Minimalise()`
+    - Ezen függvény megjelenítési célból jött létre. Célja a `Kanyarhen()` által végrehajtott esetlegesen felesleges `mod` növelések eltűnjenek, valamint bal felső sarokból abc sorrendben növekvő sorredben osztja ki a karaktereket
+- `toChar()`
+    - Az eddig használt számokat konvertálja át ASCII karakterekké
 
 ## III. Pop-it! hub
 ### 1. Felhasznált technológiák, könyvtárak
