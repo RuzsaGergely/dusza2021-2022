@@ -35,7 +35,7 @@ namespace Pop_it_GUI
         private void lbl_ervenyesites_Click(object sender, EventArgs e)
         {
             jatek.JatekEllenor();
-            if (Convert.ToBoolean(jatek.jatekos) && botPlay && jatek.aktivJatek)
+            if (Convert.ToBoolean(jatek.jatekos) && botPlay && jatek.aktivJatek && jatek.ErvenyesLepes)
             {
                 JatekosGep.makeMove(jatek.jatekter_grid);
                 jatek.JatekEllenor();
@@ -47,7 +47,7 @@ namespace Pop_it_GUI
             if(e.KeyChar == (char)Keys.Space)
             {
                 jatek.JatekEllenor();
-                if (Convert.ToBoolean(jatek.jatekos) && botPlay && jatek.aktivJatek)
+                if (Convert.ToBoolean(jatek.jatekos) && botPlay && jatek.aktivJatek && jatek.ErvenyesLepes)
                 {
                 JatekosGep.makeMove(jatek.jatekter_grid);
                 jatek.JatekEllenor();

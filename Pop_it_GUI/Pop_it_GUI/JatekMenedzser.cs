@@ -19,6 +19,7 @@ namespace Pop_it_GUI
         // 1 - jatekos 2
         public int[] jatekos_stats { get; set; } = { 0, 0 };
         public Logger error_logger = new Logger("logs.txt");
+        public bool ErvenyesLepes = true;
 
         public JatekMenedzser(DataGridView jatekter, Label jatekos_status, Form aktualis_form)
         {
@@ -41,6 +42,7 @@ namespace Pop_it_GUI
                         break;
                     }
                 }
+                ErvenyesLepes = ervenyes_tamadas;
                 if (ervenyes_tamadas)
                 {
                     foreach (DataGridViewCell item in jatekter_grid.SelectedCells)
