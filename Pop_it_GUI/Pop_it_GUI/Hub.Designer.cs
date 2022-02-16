@@ -97,7 +97,7 @@
             this.MinimumSize = new System.Drawing.Size(360, 411);
             this.Name = "Hub";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - Csodacsapat [Hub]";
+            this.Text = "Pop-it! GUI - Csodacsapat [Hub]";
             this.ResumeLayout(false);
 
         }

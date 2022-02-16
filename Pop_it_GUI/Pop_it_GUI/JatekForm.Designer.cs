@@ -89,7 +89,7 @@ namespace Pop_it_GUI
             this.MinimumSize = new System.Drawing.Size(584, 633);
             this.Name = "JatekForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Pop it! GUI - Csodacsapat [Játék]";
+            this.Text = "Pop-it! GUI - Csodacsapat [Játék]";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.JatekForm_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.JatekForm_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jatekter)).EndInit();
