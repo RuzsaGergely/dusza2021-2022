@@ -47,6 +47,11 @@ namespace Pop_it_GUI
             if(e.KeyChar == (char)Keys.Space)
             {
                 jatek.JatekEllenor();
+                if (Convert.ToBoolean(jatek.jatekos) && botPlay && jatek.aktivJatek)
+                {
+                JatekosGep.makeMove(jatek.jatekter_grid);
+                jatek.JatekEllenor();
+                }
             }
         }
     }
